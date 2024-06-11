@@ -1,0 +1,25 @@
+<div class="popUp">
+
+  <div class="cabecera">
+    <h1>¿Desea eliminar el siguiente peso?</h1>
+  </div>
+
+  <form [formGroup]="formDeletePeso" (ngSubmit)="deletePeso()">
+    <div class="formPeso">
+      <div class="infoPeso">
+        <div class="infoIzq">
+        <p> <strong>Fecha: </strong>{{fecha}}</p>
+        <p> <strong>Hora: </strong>{{hora}}</p>
+      </div>
+      <div class="infoDer">
+        <p> <strong>Peso: </strong>{{peso}}</p>
+      </div>
+      </div>
+    </div>
+    <div class="pieForm">
+      <button mat-raised-button  color="secondary" onclick="closeDialog()">Cancelar</button>
+      <button mat-raised-button color="primary" type="submit">Eliminar</button>
+    </div>
+  </form>
+
+</div>

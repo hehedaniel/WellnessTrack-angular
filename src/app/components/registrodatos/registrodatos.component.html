@@ -1,0 +1,23 @@
+<div class="formDatos">
+  <form [formGroup]="formularioDatos" (ngSubmit)="registrarUsuario()" class="form">
+    <mat-form-field class="mat-form-field inputForm">
+      <input class="input" matInput type="text" formControlName="nombre" placeholder="Nombre">
+      <img matSuffix class="iconoInput" src="../../../assets/images/IconoCorreoNegro.png" alt="">
+    </mat-form-field>
+    <mat-form-field class="mat-form-field inputForm">
+      <input class="input" matInput type="text" formControlName="apellidos" placeholder="Apellidos">
+      <img matSuffix class="iconoInput" src="../../../assets/images/IconoCorreoNegro.png" alt="">
+    </mat-form-field>
+    <mat-form-field class="mat-form-field inputForm">
+      <input class="input" matInput type="text" formControlName="edad" placeholder="Edad">
+      <img matSuffix class="iconoInput" src="../../../assets/images/IconoCorreoNegro.png" alt="">
+    </mat-form-field>
+    <mat-form-field class="mat-form-field inputForm">
+      <input class="input" matInput type="text" formControlName="altura" placeholder="Altura">
+      <img matSuffix class="iconoInput" src="../../../assets/images/IconoCorreoNegro.png" alt="">
+    </mat-form-field>
+
+
+    <button class="btnForm" cdkFocusInitial color="primary" type="submit">Terminar registro</button>
+  </form>
+</div>

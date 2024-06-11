@@ -1,0 +1,38 @@
+<div class="page-container">
+  <div class="table-wrapper">
+    @if (existeData) {
+      <div class="table-container">
+        <table class="meal-table">
+          <thead>
+            <tr>
+              <th>Hora</th>
+              <th>Nombre</th>
+              <th>Calorias</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for(comida of newData; track 0){
+            <tr>
+              <td>{{ comida.hora.split('.')[0] }}</td>
+              <td>{{ comida.nombre }}</td>
+              <td>{{ comida.calorias }}</td>
+              <td class="actions">
+                <img matSuffix class="edit-button fakeButton" src="../../../assets/icons/editBlack12.svg"
+                (click)="editarComida(comida)" alt="">
+                <img matSuffix class="delete-button fakeButton" src="../../../assets/icons/deleteBlack12.svg"
+                (click)="eliminarComida(comida)" alt="">
+              </td>
+            </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    }
+    @else {
+      <div class="divNoData">
+        <p>!Añada alimentos primero!</p>
+      </div>
+    }
+  </div>
+</div>

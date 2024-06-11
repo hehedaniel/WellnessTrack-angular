@@ -1,0 +1,32 @@
+<div class="page-container">
+  <div class="divBtn">
+    <button class="anadirBtn fakeButton" (click)="anadirPeso()">Añadir</button>
+  </div>
+  <div class="tablaPeso">
+    <div class="table-container">
+      <table class="meal-table">
+        <thead>
+          <tr>
+            <th>Fecha y hora</th>
+            <th>Peso</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for(peso of newData; track 0){
+          <tr>
+            <td>{{ peso.fecha }} / {{ peso.hora}}</td>
+            <td>{{ peso.peso }}</td>
+            <td>
+              <img matSuffix class="edit-button fakeButton" src="../../../assets/icons/editBlack12.svg" alt="Botón de editar"
+                (click)="editPeso(peso)">
+              <img matSuffix class="delete-button fakeButton" src="../../../assets/icons/deleteBlack12.svg" alt="Botón de eliminar"
+                (click)="deletePeso(peso)">
+            </td>
+          </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

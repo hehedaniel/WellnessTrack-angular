@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+  --PRIMARY_50: #EFFEF9;
+  --PRIMARY_100: #CAFDEF;
+  --PRIMARY_200: #95FAE1;
+  --PRIMARY_300: #59EFD0;
+  --PRIMARY_400: #23D0B1;
+  --PRIMARY_500: #0EBEA2;
+  --PRIMARY_600: #089984;
+  --PRIMARY_700: #0B7A6B;
+  --PRIMARY_800: #0E6158;
+  --PRIMARY_900: #115049;
+
+  --SECONDARY_50: #FEF5EE;
+  --SECONDARY_100: #FDE8D7;
+  --SECONDARY_200: #FBCEAD;
+  --SECONDARY_300: #F7AB7A;
+  --SECONDARY_400: #F37E44;
+  --SECONDARY_500: #F16932;
+  --SECONDARY_600: #E14215;
+  --SECONDARY_700: #BB3013;
+  --SECONDARY_800: #942818;
+  --SECONDARY_900: #782316;
+
+  --TERTIARY_50: #ECFBFF;
+  --TERTIARY_100: #DDF7FF;
+  --TERTIARY_200: #A3E6FE;
+  --TERTIARY_300: #64D3FC;
+  --TERTIARY_400: #1EB6F2;
+  --TERTIARY_500: #0299D8;
+  --TERTIARY_600: #0478B6;
+  --TERTIARY_700: #0B6293;
+  --TERTIARY_800: #135077;
+  --TERTIARY_900: #144365;
+
+  --SUCCESS_50: #EDFFF2;
+  --SUCCESS_100: #D5FFE2;
+  --SUCCESS_200: #AEFFC6;
+  --SUCCESS_300: #70FF9C;
+  --SUCCESS_400: #2BFD69;
+  --SUCCESS_500: #00FF4C;
+  --SUCCESS_600: #00C035;
+  --SUCCESS_700: #00962C;
+  --SUCCESS_800: #067528;
+  --SUCCESS_900: #076024;
+
+
+  --WARNING_50: #FFF4ED;
+  --WARNING_100: #FFE6D4;
+  --WARNING_200: #FFC8A8;
+  --WARNING_300: #FFA271;
+  --WARNING_400: #FF6F37;
+  --WARNING_500: #FE4A11;
+  --WARNING_600: #EF2F07;
+  --WARNING_700: #C61F08;
+  --WARNING_800: #9D1B0F;
+  --WARNING_900: #7E1910;
+
+  --ERROR_50: #FFF1F1;
+  --ERROR_100: #FFDFDF;
+  --ERROR_200: #FFC5C5;
+  --ERROR_300: #FF9D9D;
+  --ERROR_400: #FF6464;
+  --ERROR_500: #FF1F1F;
+  --ERROR_600: #ED1515;
+  --ERROR_700: #C80D0D;
+  --ERROR_800: #A50F0F;
+  --ERROR_900: #881414;
+
+  --NEUTRAL_50: #F7F9F9;
+  --NEUTRAL_100: #EFF3F2;
+  --NEUTRAL_200: #E7EDEC;
+  --NEUTRAL_300: #DFE7E6;
+  --NEUTRAL_400: #D7E1DF;
+  --NEUTRAL_500: #CFDBD9;
+  --NEUTRAL_600: #9EB6B2ED;
+  --NEUTRAL_700: #6E928C;
+  --NEUTRAL_800: #49615D;
+  --NEUTRAL_900: #25312F;
+
+  --EXTRA_WHITE: #FFFFFF;
+  --EXTRA_WHITE_LIGHT: #E9E9E9;
+  --EXTRA_BLACK: #000000;
+  --EXTRA_BLACK_LIGHT: #151515;
+}
+
+.active-link {
+  font-weight: bold !important;
+  color:var(--PRIMARY_900) !important;
+}
+
+*{
+  font-family: 'Chivo', sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+  background-color: #f5f5f5;
+}
+
+body {
+  margin: 0;
+}
+
+.inputForm{
+  width: 55%;
+}
+
+/* Estilos de los tabs */
+.mat-mdc-tab{
+  font-size: 25px !important;
+
+}
+
+/* Estilos de los inputs del form */
+.inputForm .mat-mdc-form-field-flex{
+  /* padding-left: 15px !important; */
+  /* width: 100% !important;
+  /* border: 2px solid black; */
+  /* font-weight: 800; */
+  /* color: black; */
+  /* border-radius: 10px !important; */
+}
+
+.mdc-text-field{
+  height: 30px !important;
+  padding: 0% !important;
+}
+
+.mat-mdc-form-field-infix{
+  padding: 0% !important;
+}
+
+.btnForm {
+  width: 200px;
+  padding: 15px;
+  margin: 20px 0;
+  background-color: #4fc3f7;
+  color: #000;
+  border: none;
+  border-radius: 25px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+}
+
+app-resumen-alimentos{
+  display: flex;
+  justify-content: center;
+}
+
+.fakeButton{
+  cursor: pointer;
+}

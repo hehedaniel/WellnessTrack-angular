@@ -1,0 +1,71 @@
+.page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.table-wrapper {
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 800px;
+}
+
+.table-header {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 10px;
+}
+
+.table-container {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.meal-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.meal-table th, .meal-table td {
+  padding: 10px 20px;
+  text-align: left;
+  font-size: 16px;
+}
+
+.meal-table th {
+  font-weight: bold;
+  background-color: var(--SECONDARY_50);
+  position: sticky;
+  top: 0;
+}
+
+.meal-table td {
+  border-bottom: 1px solid #ddd;
+}
+
+.actions {
+  text-align: center;
+}
+
+.edit-button, .delete-button {
+  background: none;
+  border: none;
+  font-size: 16px;
+}
+
+.edit-button {
+  margin-right: 10px;
+}
+
+.divNoData {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fakeButton {
+  cursor: pointer;
+  margin-right: 5px;
+}

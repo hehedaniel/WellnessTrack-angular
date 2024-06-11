@@ -1,0 +1,76 @@
+<div class="bodyContenedor">
+
+  <div class="contenedor">
+    <div class="titulo">
+      <h1>Proponer Alimento - {{alimentoNombre}}</h1>
+    </div>
+
+    <div>
+      <form [formGroup]="formularioProponerAlimento" (ngSubmit)="proponer()" class="formulario">
+        <div class="contForm">
+          <div class="izq-form">
+            <mat-form-field class="mat-form-field inputForm">
+              <input class="input" matInput type="number" formControlName="calorias" placeholder="Calorías (gr)">
+              @if(formularioProponerAlimento.get('calorias')?.hasError('required')){
+              <mat-error>
+                Debe indicar la cantida de calorías
+              </mat-error>
+              }
+            </mat-form-field>
+
+            <mat-form-field class="mat-form-field inputForm">
+              <input class="input" matInput type="number" formControlName="proteinas" placeholder="Proteínas (gr)">
+              @if(formularioProponerAlimento.get('proteinas')?.hasError('required')){
+              <mat-error>
+                Debe indicar la cantidad de proteínas
+              </mat-error>
+              }
+            </mat-form-field>
+
+            <mat-form-field class="mat-form-field inputForm">
+              <input class="input" matInput type="number" formControlName="azucares" placeholder="Azúcares (gr)">
+              @if(formularioProponerAlimento.get('azucares')?.hasError('required')){
+              <mat-error>
+                Debe indicar la cantidad de azúcares
+              </mat-error>
+              }
+            </mat-form-field>
+
+          </div>
+          <div class="der-form">
+            <mat-form-field class="mat-form-field inputForm">
+              <input class="input" matInput type="number" formControlName="grasas" placeholder="Grasas (gr)">
+              @if(formularioProponerAlimento.get('grasas')?.hasError('required')){
+              <mat-error>
+                Debe indicar la cantidad de grasas
+              </mat-error>
+              }
+            </mat-form-field>
+
+            <mat-form-field class="mat-form-field inputForm">
+              <input class="input" matInput type="number" formControlName="vitaminas" placeholder="Vitaminas (gr)">
+              @if(formularioProponerAlimento.get('vitaminas')?.hasError('required')){
+              <mat-error>
+                Debe indicar la cantidad de vitaminas
+              </mat-error>
+              }
+            </mat-form-field>
+
+            <mat-form-field class="mat-form-field inputForm">
+              <input class="input" matInput type="number" formControlName="carbohidratos" placeholder="Carbohidratos (gr)">
+              @if(formularioProponerAlimento.get('carbohidratos')?.hasError('required')){
+              <mat-error>
+                Debe indicar la cantidad de carbohidratos
+              </mat-error>
+              }
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="fin-form">
+          <button class="btnForm" cdkFocusInitial color="primary" type="submit">Proponer</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

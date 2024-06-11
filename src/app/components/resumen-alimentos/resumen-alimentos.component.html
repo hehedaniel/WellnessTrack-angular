@@ -1,0 +1,43 @@
+<div class="resumenDiv">
+  @defer{
+  @if (datos){
+    <div class="infoDiv">
+      <div class="nutrientes">
+        <!-- Tabla con los nutrientes -->
+        <table class="nutrientesTabla">
+          <th colspan="2">
+            Resumen diario: {{ fecha }}
+          </th>
+          <tr>
+            <td>Calorías: {{ this.single[3].value }} gr</td>
+            <td>Proteínas: {{ this.single[4].value }} gr</td>
+          </tr>
+          <tr>
+            <td>Carbohidratos: {{ this.single[1].value }} gr</td>
+            <td>Azúcares: {{ this.single[0].value }} gr</td>
+          </tr>
+          <tr>
+            <td>Vitaminas: {{ this.single[5].value }} gr</td>
+            <td>Grasas: {{ this.single[2].value }} gr</td>
+          </tr>
+        </table>
+      </div>
+      <div>
+        <ngx-charts-pie-chart [view]="view" [results]="single" [gradient]="gradient" [legend]="false"
+          [labels]="showLabels" [doughnut]="isDoughnut" (select)="onSelect($event)" (activate)="onActivate($event)"
+          (deactivate)="onDeactivate($event)">
+        </ngx-charts-pie-chart>
+      </div>
+    </div>
+  }
+  @else {
+    <div class="noData">
+      <h1>Aún no hay datos</h1>
+    </div>
+  }
+  }@loading(minimum 1.2s){
+    <div class="divSpinner">
+      <mat-spinner></mat-spinner>
+    </div>
+  }
+</div>

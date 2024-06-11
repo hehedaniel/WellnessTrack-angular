@@ -1,0 +1,35 @@
+<div class="formContenedor">
+    <form [formGroup]="formularioLogin" (ngSubmit)="loginUser()" class="form">
+        <mat-form-field class="mat-form-field inputForm">
+            <input class="input" matInput type="email" formControlName="correo" placeholder="Correo">
+            <img matSuffix class="iconoInput" src="../../../assets/images/IconoCorreoNegro.png" alt="">
+            @if(formularioLogin.get('correo')?.hasError('pattern') ||
+            formularioLogin.get('correo')?.hasError('required')){
+            <mat-error>
+                Por favor, introduzca un correo válido
+            </mat-error>
+            }
+        </mat-form-field>
+
+        <mat-form-field class="mat-form-field inputForm">
+            <input class="input" [type]="hide ? 'password' : 'text'" matInput formControlName="contrasena"
+                placeholder="Contraseña">
+            <!-- <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="hide">
+                @if(hide){
+                <img matSuffix class="iconoInput" src="../../../assets/images/IconoOcultarContraseniaNegro.png" alt="">
+                }@else{
+                <img matSuffix class="iconoInput" src="../../../assets/images/IconoMostrarContraseniaNegro.png" alt="">
+                }
+            </button> -->
+            @if(formularioLogin.get('contrasena')?.hasError('required')){
+                <mat-error>
+                    Debe indicar la contraseña del usuario
+                </mat-error>
+            }
+        </mat-form-field>
+
+        <button class="btnForm" cdkFocusInitial color="primary" type="submit">Iniciar Sesión</button>
+        <!-- <a class="olvidoContrasena" href="">He olvidado mi contraseña</a> -->
+    </form>
+</div>

@@ -1,0 +1,61 @@
+.comidasPage{
+  color: var(--PRIMARY_900);
+}
+
+.content{
+  background-color: var(--SECONDARY_50);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  /* width: fit-content; */
+  width: 40%;
+  box-shadow: -4px 4px 8px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 7px;
+}
+
+.comidasHome{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 20vh;
+  width: 100%;
+  border-radius: 20px;
+}
+
+app-tabla-comidas-completa{
+  width: 99%;
+}
+app-tabla-comidas{
+  width: 99%;
+}
+
+h1 {
+  width: 80%;
+  text-align: left;
+}
+button{
+  border: 0;
+  border-radius: 8px;
+}
+
+.divBtn{
+  width: 80%;
+  text-align: right;
+  height: 25px;
+  margin: 1%;
+}
+
+.anadirBtn{
+  width: 15%;
+  background-color: var(--PRIMARY_500);
+  height: 100%;
+}
+
+.crearRecetaBtn{
+  width: 35%;
+  background-color: var(--TERTIARY_600);
+  color: white;
+  margin: 3%;
+  height: 35px;
+
+}

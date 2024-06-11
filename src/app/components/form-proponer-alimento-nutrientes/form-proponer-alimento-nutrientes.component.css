@@ -1,0 +1,49 @@
+.bodyContenedor {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+}
+
+.contenedor {
+  background-color: var(--SECONDARY_50);
+  width: 40%;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.contForm {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.mdc-text-field--filled:not(.mdc-text-field--disabled){
+  border: 2px solid black !important;
+}
+
+.input {
+  border: 2px solid black;
+  background-color: var(--EXTRA_WHITE_LIGHT);
+  color: black;
+  border-radius: 10px;
+  padding: 1%;
+}
+
+.izq-form, .der-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+
+.fin-form{
+  display: flex;
+  justify-content: center;
+}
+
+.btnForm{
+  border-radius: 25px !important;
+  padding: 1% !important;
+}

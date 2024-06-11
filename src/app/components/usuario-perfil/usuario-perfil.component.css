@@ -1,0 +1,64 @@
+.datosUsuarisoCompletos{
+  display: flex;
+  justify-content: space-evenly;
+  /* height: 0%; */
+  padding-top: 3%;
+  padding-bottom: 5%;
+}
+
+.datosIzq , .datosDer{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  margin: 10px;
+  height: 60%;
+  width: 25%;
+}
+
+.bloqueDatosUsuario{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 4%;
+}
+
+.datosUsuario{
+  background-color: var(--EXTRA_WHITE_LIGHT);
+  border: 1px solid black;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 30px;
+  width: 100%;
+}
+
+.datosUsuario > p {
+  margin-top: 10px;
+  margin-left: 5px;
+}
+
+.edit-button{
+  height: 12px;
+  margin-right: 5px;
+}
+
+.pieForm{
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+button{
+  background-color: var(--TERTIARY_300);
+  border-radius: 20px;
+  padding: 0.5%;
+}
+
+.spinnerClass{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90%;
+}

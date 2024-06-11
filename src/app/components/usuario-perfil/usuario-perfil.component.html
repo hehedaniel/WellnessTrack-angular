@@ -1,0 +1,82 @@
+<!-- <h2>!Bienvenido: {{userEmail}}¡</h2> -->
+
+@defer {
+<div>
+  <div class="datosUsuarisoCompletos">
+    <div class="datosIzq">
+      <div class="bloqueDatosUsuario">
+        <p>Nombre</p>
+        <div class="datosUsuario">
+          <p> {{userNombre}} </p>
+          <img matSuffix class="edit-button fakeButton" src="../../../assets/icons/editBlack12.svg"
+            (click)="editarValor(userNombre, 'nombre')" alt="Icono editar" title="Editar">
+        </div>
+      </div>
+
+      <div class="bloqueDatosUsuario">
+        <p>Apellidos</p>
+        <div class="datosUsuario">
+          <p> {{userApellidos}} </p>
+          <img matSuffix class="edit-button fakeButton" src="../../../assets/icons/editBlack12.svg"
+            (click)="editarValor(userApellidos, 'apellidos')" alt="Icono editar" title="Editar">
+        </div>
+      </div>
+
+      <div class="bloqueDatosUsuario">
+        <p>Correo</p>
+        <div class="datosUsuario">
+          <p> {{userEmail}} </p>
+          <!-- Como carajo funcionan los condicionales -->
+          @if(!correoVerificado) {
+          <img matSuffix class="edit-button fakeButton" src="../../../assets/icons/verifiedBlack12.svg"
+            alt="Icono editar" title="Correo verificado">
+          }@else {
+          <img matSuffix class="edit-button fakeButton" src="../../../assets/icons/reloadBlack12.svg"
+            alt="Icono verificado" (click)="verificarEmail(userEmail, 'email')" title="Correo sin verificar">
+          }
+        </div>
+      </div>
+
+    </div>
+    <div class="datosDer">
+
+      <div class="bloqueDatosUsuario">
+        <p>Altura</p>
+        <div class="datosUsuario">
+          <p> {{userAltura}} </p>
+          <img matSuffix class="edit-button fakeButton" src="../../../assets/icons/editBlack12.svg"
+            (click)="editarValor(userAltura, 'altura')" alt="Icono editar" title="Editar">
+        </div>
+      </div>
+
+      <div class="bloqueDatosUsuario">
+        <p>Objetivo</p>
+        <div class="datosUsuario">
+          <p> {{userObjetivo}} </p>
+          <img matSuffix class="edit-button fakeButton" src="../../../assets/icons/editBlack12.svg"
+            (click)="editarValor(userObjetivo, 'objetivo_opt')" alt="Icono editar" title="Editar">
+        </div>
+      </div>
+
+      <div class="bloqueDatosUsuario">
+        <p>Peso objetivo</p>
+        <div class="datosUsuario">
+          <p> {{userPesoObjetivo}} </p>
+          <img matSuffix class="edit-button fakeButton" src="../../../assets/icons/editBlack12.svg"
+            (click)="editarValor(userPesoObjetivo, 'objetivo_num')" alt="Icono editar" title="Editar">
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="pieForm">
+    <button mat-raised-button color="primary" class="fakeButton" (click)="cerrarSesion()">Cerrar Sesión</button>
+  </div>
+</div>
+}
+@loading(minimum 1.2s){
+  <div class="spinnerClass">
+    <mat-spinner></mat-spinner>
+  </div>
+}

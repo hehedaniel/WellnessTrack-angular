@@ -1,0 +1,43 @@
+.popUpCompleto{
+  width: 500px;
+  height: 300px;
+}
+
+h2{
+  margin-top: 2%;
+  margin-left: 2%;
+}
+
+.infoUser{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.inputUserInfo{
+  width: 100%;
+  background-color: var(--EXTRA_WHITE_LIGHT);
+  padding: 5%;
+}
+
+.piePopUp{
+  margin-top: 4%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+button{
+  padding: 2% 4% 2% 4%;
+  border-radius: 10px;
+}
+
+.btnCancelar{
+  background-color: var(--PRIMARY_300);
+  color: black;
+}
+
+.btnGuardar{
+  background-color: var(--TERTIARY_600);
+  color: white;
+}

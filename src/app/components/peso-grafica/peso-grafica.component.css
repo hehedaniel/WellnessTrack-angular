@@ -1,0 +1,44 @@
+.centrarContent{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* height: 60vh; */
+}
+
+.graficaPeso{
+  /* background-color: var(--SECONDARY_50); */
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+}
+
+.titulo{
+  width: 90%;
+  text-align: left;
+}
+.graficaPeso{
+  width: 90%;
+  min-height: 300px;
+  /* display: flex; */
+}
+
+.graficaPesoIMC{
+  width: 100% !important;
+}
+
+.selFechas{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-top: 2%;
+}
+
+.spinnerCont{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}

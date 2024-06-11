@@ -1,0 +1,36 @@
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--PRIMARY_600);
+}
+
+.toolbar h3, span{
+  cursor: pointer;
+}
+.paginasToolbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 5%;
+}
+
+.paginasToolbar h3 {
+  margin: 0 10px;
+  font-size: 28px;
+  font-weight: bold;
+  color: var(--EXTRA_WHITE);
+}
+
+.profile-icon {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+
+/* .profile-icon img {
+  border-radius: 50%;
+  /* width: 24px;
+  height: 24px;
+} */

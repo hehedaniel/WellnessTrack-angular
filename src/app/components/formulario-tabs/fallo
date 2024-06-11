@@ -1,0 +1,103 @@
+<mat-tab-group dynamicHeight>
+  <mat-tab label="Iniciar Sesión" [class.active]="activeTab == 'Iniciar sesión'">
+    <div class="" id="loginForm">
+      <div class="formulario">
+        <form [formGroup]="formularioLogin" (ngSubmit)="loginUser()" class="form">
+          <!-- <mat-form-field class="mat-form-field"> -->
+            <input class="formInput" matInput type="email" formControlName="correo" placeholder="Correo">
+            <img matSuffix class="iconoInput" src="../../../assets/images/IconoCorreoNegro.png" alt="">
+            @if(formularioLogin.get('correo')?.hasError('pattern') ||
+            formularioLogin.get('correo')?.hasError('required')){
+            <mat-error>
+              Por favor, introduzca un correo válido
+            </mat-error>
+            }
+          <!-- </mat-form-field> -->
+
+          <!-- <mat-form-field class="mat-form-field"> -->
+            <input class="formInput" [type]="hide ? 'password' : 'text'" matInput formControlName="contrasena"
+              placeholder="Contraseña">
+            <!-- <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              @if(hide){
+              <img matSuffix class="iconoInput" src="../../../assets/icons/passHideBlack12.svg" alt="">
+              }@else{
+              <img matSuffix class="iconoInput" src="../../../assets/icons/passShowBlack12.svg" alt="">
+              }
+            </button> -->
+            @if(formularioLogin.get('contrasena')?.hasError('required')){
+            <mat-error>
+              Debe indicar la contraseña del usuario
+            </mat-error>
+            }
+          <!-- </mat-form-field> -->
+
+          <button class="button" mat-stroked-button cdkFocusInitial color="primary" type="submit">Iniciar
+            Sesión</button>
+          <!-- <a class="olvidoContrasena" href="">He olvidado mi contraseña</a> -->
+        </form>
+      </div>
+    </div>
+  </mat-tab>
+  <mat-tab label="Registro" [class.active]="activeTab == 'Registro'">
+    <div class="" id="registroForm">
+      <div class="formulario">
+        <form [formGroup]="formularioRegistro" (ngSubmit)="registrarUsuario()" class="form">
+          <mat-form-field class="mat-form-field">
+            <input class="input" matInput type="email" formControlName="correo" placeholder="Correo">
+            <img matSuffix class="iconoInput" src="../../../assets/images/IconoCorreoNegro.png" alt="">
+            <!-- Usar la comprobacion de correo de Huelva -->
+            @if(formularioRegistro.get('correo')?.hasError('pattern') ||
+            formularioRegistro.get('correo')?.hasError('required')){
+            <mat-error>
+              Por favor, introduzca un correo válido
+            </mat-error>
+            }
+          </mat-form-field>
+
+          <mat-form-field class="mat-form-field">
+            <input class="input" [type]="hide ? 'password' : 'text'" matInput formControlName="contrasena"
+              placeholder="Contraseña">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide">
+              @if(hide){
+              <img matSuffix class="iconoInput" src="../../../assets/icons/passHideBlack12.svg" alt="">
+              }@else{
+              <img matSuffix class="iconoInput" src="../../../assets/icons/passShowBlack12.svg" alt="">
+              }
+            </button>
+            @if(formularioRegistro.get('contrasena')?.hasError('required')){
+            <mat-error>
+              Debe indicar la contraseña del usuario
+            </mat-error>
+            }
+          </mat-form-field>
+
+          <mat-form-field class="mat-form-field">
+            <input class="input" [type]="hide ? 'password' : 'text'" matInput formControlName="contrasenarepeat"
+              placeholder="Repetir Contraseña">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide">
+              @if(hide){
+              <img matSuffix class="iconoInput" src="../../../assets/icons/passHideBlack12.svg" alt="">
+              }@else{
+              <img matSuffix class="iconoInput" src="../../../assets/icons/passShowBlack12.svg" alt="">
+              }
+            </button>
+            @if(formularioRegistro.get('contrasena')?.hasError('required')){
+            <mat-error>
+              Debe indicar la contraseña del usuario
+            </mat-error>
+            }
+            @if(formularioRegistro.get('contrasena') != formularioRegistro.get('contrasenarepeat')){
+            <mat-error>
+              Ambas contraseñas deben coincidir
+            </mat-error>
+            }
+          </mat-form-field>
+
+          <button class="button is" mat-stroked-button cdkFocusInitial color="primary" type="submit">Registrar</button>
+        </form>
+      </div>
+    </div>
+  </mat-tab>
+</mat-tab-group>

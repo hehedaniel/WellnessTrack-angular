@@ -1,0 +1,31 @@
+<div class="popUpCompleto">
+  <h2>Valor actual </h2>
+
+  <div class="infoUser">
+    <mat-form-field>
+      <input type="text" matInput class="inputUserInfo" formControlName="newValue" value="{{oldValue}}" readonly>
+    </mat-form-field>
+  </div>
+
+  <h2>Introduce el nuevo valor</h2>
+
+  <div class="infoUser">
+    <form [formGroup]="formActualizarDato">
+      <mat-form-field>
+        <input matInput type="text" class="inputUserInfo" placeholder="Nuevo valor" formControlName="newValue">
+        @if(formActualizarDato.get('newValue')?.hasError('required')){
+        <mat-error>
+          Debe indicar un peso
+        </mat-error>
+        }
+      </mat-form-field>
+    </form>
+  </div>
+
+
+  <div class="piePopUp">
+    <button class="btnCancelar fakeButton" (click)="closeDialog()">Cancelar</button>
+    <button class="btnGuardar fakeButton" (click)="actualizar(propiedad)">Guardar</button>
+  </div>
+
+</div>

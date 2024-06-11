@@ -1,0 +1,40 @@
+<div class="proponerAlimentoBody">
+  <div class="contenedor">
+    <div class="titulo">
+      <h1>Proponer Alimento</h1>
+    </div>
+    <div>
+      <form [formGroup]="formularioProponerAlimento" (ngSubmit)="proponer()" class="formulario">
+        <div class="contForm">
+          <div class="izq-form">
+            <div class="inputForm">
+              <input class="input" type="text" formControlName="nombre" placeholder="Nombre">
+            </div>
+
+            <div class="inputForm">
+              <textarea class="textAreaForm large-textarea" formControlName="descripcion" placeholder="Descripción"></textarea>
+            </div>
+          </div>
+          <div class="der-form">
+            <div class="contImg">
+              <input type="file" (change)="subirImg($event)" formControlName="imagen">
+              <img [src]="base64Image" alt="Imagen seleccionada" class="preview-img">
+            </div>
+
+            <div class="inputForm">
+              <input class="input" type="text" formControlName="cantidad" placeholder="Cantidad">
+            </div>
+
+            <div class="inputForm">
+              <input class="input" type="text" formControlName="marca" placeholder="Marca">
+            </div>
+          </div>
+        </div>
+        <div class="fin-form">
+          <button (click)="cancelar()" class="btnCancelar fakeButton">Cancelar</button>
+          <button class="btnSiguiente fakeButton">Siguiente</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

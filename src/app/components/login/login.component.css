@@ -1,0 +1,15 @@
+form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 35px;
+}
+
+.btnForm{
+  margin-bottom: 25px;
+}
+
+/* .formContenedor{
+  box-shadow: -4px 4px 4px rgba(0, 0, 0, 0.1);
+} */
