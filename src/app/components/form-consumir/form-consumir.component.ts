@@ -96,6 +96,7 @@ export class FormConsumirComponent {
         duration: 3000,
         horizontalPosition: 'center',
         verticalPosition: 'top',
+        panelClass: ['error-snackbar']
       });
       return;
     }else {
@@ -128,8 +129,14 @@ export class FormConsumirComponent {
     this.#alimentoService.postConsumoDiarioGuardar(this.comidaSeleccionada, cantidad, momento, fecha, hora, idUsuario).subscribe((data: any) => {
       console.log(data.respuesta);
       if (data.code == 200){
-        // this.#dialog.closeAll();
-        // location.reload();
+        this.#dialog.closeAll();
+        location.reload();
+        this.#snackBar.open('Consumo guardado correctamente', '', {
+          duration: 3000,
+          horizontalPosition: 'center',
+          verticalPosition: 'top',
+          panelClass: ['success-snackbar']
+        });
       }
     });
     }

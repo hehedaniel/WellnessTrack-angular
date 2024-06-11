@@ -66,14 +66,16 @@ export class TablaEjerciciosComponent {
       duration: 2000,
       horizontalPosition: 'center',
       verticalPosition: 'top',
+      panelClass: ['error-snackbar']
     });
   }
 
   editarEjercicio(ejercicio: any) {
-    this.#snackBar.open('No ha sido posible realizar editar el ejercicio', '', {
+    this.#snackBar.open('No ha sido posible editar el ejercicio', '', {
       duration: 2000,
       horizontalPosition: 'center',
       verticalPosition: 'top',
+      panelClass: ['error-snackbar']
     });
   }
 

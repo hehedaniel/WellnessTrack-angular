@@ -105,6 +105,7 @@ export class UsuarioPerfilComponent {
         duration: 2000,
         horizontalPosition: 'center',
         verticalPosition: 'top',
+        panelClass: ['error-snackbar']
       });
     })
   };

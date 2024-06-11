@@ -58,6 +58,7 @@ export class LoginComponent {
             duration: 2000,
             horizontalPosition: 'center',
             verticalPosition: 'top',
+            panelClass: ['error-snackbar']
           });
         }else {
           console.log('Usuario logeado');
@@ -80,8 +81,13 @@ export class LoginComponent {
         }
       });
     }else {
-      // Mostar pop up de error
       alert('Formulario invalido');
+      this.#snackBar.open('Revise el formulario', '', {
+        duration: 2000,
+        horizontalPosition: 'center',
+        verticalPosition: 'top',
+        panelClass: ['error-snackbar']
+      });
     }
   }
 

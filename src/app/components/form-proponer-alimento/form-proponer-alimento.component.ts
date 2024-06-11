@@ -53,6 +53,7 @@ export class FormProponerAlimentoComponent {
         duration: 2000,
         horizontalPosition: 'center',
         verticalPosition: 'top',
+        panelClass: ['error-snackbar']
       });
 
     } else {
