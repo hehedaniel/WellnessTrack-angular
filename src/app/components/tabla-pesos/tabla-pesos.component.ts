@@ -34,17 +34,18 @@ export class TablaPesosComponent {
   displayedColumns: string[] = ['Fecha y hora', 'peso'];
   dataSource = this.newData;
 
-  ngOnInit() {
-    // console.log(this.newData);
+  idUsuario: string = localStorage.getItem('idUsuarioLogeado') ?? '';
 
+  ngOnInit() {
     this.fetchData();
+    this.obtenerUsuario();
   }
 
   fetchData(): Peso[] {
 
     const fecha = this.obtenerFecha();
 
-    this.#pesoService.getAllPesos('2')
+    this.#pesoService.getAllPesos(this.idUsuario)
       .subscribe((data: any) => {
         data.respuesta.forEach((respuesta: any) => {
           const horaCompleta = respuesta.hora.date.split(' ')[1];
@@ -70,6 +71,12 @@ export class TablaPesosComponent {
     this.#dialog.open(FormAnadirPesoComponent);
   }
 
+  obtenerUsuario(){
+    this.idUsuario = localStorage.getItem('idUsuarioLogeado') ?? '';
+    console.log(this.idUsuario);
+
+  }
+
   editPeso(peso: any){
 
     console.log(peso);
@@ -80,9 +87,6 @@ export class TablaPesosComponent {
 
     this.#dialog.open(FormEditarPesoComponent);
 
-    // this.#pesoService.putEditarPeso('2', peso.fecha, peso.hora, peso.peso).subscribe((data: any) => {
-    //   console.log(data);
-    // });
   }
 
   deletePeso(peso: any){

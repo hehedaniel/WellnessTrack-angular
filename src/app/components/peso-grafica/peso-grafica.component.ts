@@ -28,7 +28,8 @@ export class PesoGraficaComponent {
   // FechaFin como la fecha actual
   fechaFin: Date = new Date();
   // Dejo idUsuario por defecto para pruebas
-  idUsuario: string = '2';
+  // idUsuario: string = '2';
+  idUsuario: string = '';
 
   documentStyle: any;
   textColor: any;
@@ -60,10 +61,11 @@ export class PesoGraficaComponent {
     end: new FormControl<Date | null>(null),
   });
 
-  // Mirar como es o quitar
   spinnerColor: string = 'white';
 
   ngOnInit() {
+
+    this.obtenerUsuario();
 
     const fechaInicioExtra = localStorage.getItem('fechaInicio');
 
@@ -83,8 +85,6 @@ export class PesoGraficaComponent {
 
     this.range.valueChanges.subscribe((value) => {
       if (value.start != null && value.end != null) {
-        // console.log(value.start?.toISOString().split('T')[0]);
-        // console.log(value.end?.toISOString().split('T')[0]);
         this.fechaInicio = new Date(value.start.toISOString().split('T')[0]);
         this.fechaFin = new Date(value.end.toISOString().split('T')[0]);
 
@@ -136,7 +136,6 @@ export class PesoGraficaComponent {
   }
 
   obtenerPesos(): any {
-    // console.log("Llega" + this.fechaInicio + this.fechaFin);
 
     const newData = {
       labels: [] = [0],
@@ -164,8 +163,6 @@ export class PesoGraficaComponent {
       .subscribe(((data: any) => {
         if (data.respuesta == "No se encontraron pesos en las fechas indicadas.") {
           console.log("Sin pesos");
-          // Intentar hacer lo de mostrar NO DATA
-          // newData.datasets[0].data = [ 10, 8, 6, 4, 2, 0, 2, 4, 6, 8, 10, null, null, null, null, null, null, 8, 6, 4, 2, 4, 6, 8, 6, 4, 2, null, 10, 8, 6, 4, 2, 4, 6, 8, 10, null, 8, 6, 4, 2, 0, 2, 4, 6, 8, 6, 4, 2, null, 10, 8, 6, 4, 2, 4, 6, 8, 10, null, 8, 6, 4, 2, 0, 2, 4, 6, 8, 6, 4, 2];
 
         } else {
           newData.datasets[0].data.pop();
@@ -182,14 +179,18 @@ export class PesoGraficaComponent {
             newData.datasets[0].data.push(pesoAdd);
             newData.datasets[1].data.push(imcAdd);
             newData.labels.push(peso.fecha.date.split(' ')[0]);
-            // console.log(newData);
           });
-          // console.log(newData);
 
         }
       }));
 
     return newData;
+  }
+
+  obtenerUsuario(){
+    this.idUsuario = localStorage.getItem('idUsuarioLogeado') ?? '';
+    console.log(this.idUsuario);
+
   }
 
 }

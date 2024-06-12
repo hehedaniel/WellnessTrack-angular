@@ -54,7 +54,6 @@ export class FormActualizarDatosUsuarioComponent {
       let altura = 0;
       let objetivo_opt = '';
       let objetivo_num = 0;
-      // let correo = '';
 
       if (propiedadCambiar == "nombre"){
         nombre = this.formActualizarDato.value.newValue;
@@ -87,19 +86,16 @@ export class FormActualizarDatosUsuarioComponent {
       }else {
         objetivo_num = parseFloat(localStorage.getItem('peso_objetivo') ?? '0');
       }
-      // else if (propiedadCambiar == "correo"){
-      //   localStorage.getItem('correo');
-      // }
 
       this.#usuarioService.putEditarUsuario(idUsuario, nombre, apellidos, altura, objetivo_opt, objetivo_num)
         .subscribe((data: any) => {
+          console.log(idUsuario);
           console.log(data);
           if (data.code === 200) {
             this.closeDialog();
             location.reload();
           }
         });
-
     }
   }
 

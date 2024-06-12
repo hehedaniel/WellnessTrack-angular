@@ -46,7 +46,6 @@ export class FormProponerAlimentoComponent {
   base64Image: string = '';
 
   proponer() {
-    // console.log(this.formularioProponerAlimento.value);
     if (!this.formularioProponerAlimento.valid) {
       alert('Por favor rellene todos los campos');
       this.#snackBar.open('Por favor rellene todos los campos', '', {

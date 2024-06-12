@@ -16,6 +16,9 @@ export class ToolbarComponent {
 
   rol: boolean = false;
 
+  nombre: string = '';
 
-
+  ngOnInit() {
+    this.nombre = localStorage.getItem('nombre') ?? '';
+  }
 }

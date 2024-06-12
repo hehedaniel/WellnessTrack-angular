@@ -48,7 +48,6 @@ export class TablaEjerciciosComponent {
               tiempo: respuesta.tiempo,
               calorias: respuesta.calorias
             });
-            // console.log(respuesta);
           });
         }
       });

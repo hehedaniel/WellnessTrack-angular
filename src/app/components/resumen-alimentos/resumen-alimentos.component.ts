@@ -1,6 +1,5 @@
 import { Component, inject } from '@angular/core';
 
-// Import para la grafica
 import { ChartModule } from 'primeng/chart';
 import { AlimentosService } from '../../services/alimentos.service';
 

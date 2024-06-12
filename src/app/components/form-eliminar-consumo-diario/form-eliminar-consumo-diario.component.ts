@@ -41,12 +41,14 @@ export class FormEliminarConsumoDiarioComponent {
   hora: string = '';
   comida: string = '';
   calorias: string = '';
+  idUsuario: string = '';
 
   ngOnInit() {
     this.fecha = localStorage.getItem('fecha') ?? '';
     this.hora = localStorage.getItem('hora') ?? '';
     this.comida = localStorage.getItem('comida') ?? '';
     this.calorias = localStorage.getItem('calorias') ?? '';
+    this.obtenerUsuario();
   }
 
   deleteConsumoDiario(){
@@ -65,5 +67,9 @@ export class FormEliminarConsumoDiarioComponent {
 
   closeDialog() {
     this.#dialog.closeAll();
+  }
+
+  obtenerUsuario(){
+    this.idUsuario = localStorage.getItem('idUsuarioLogeado') ?? '';
   }
 }

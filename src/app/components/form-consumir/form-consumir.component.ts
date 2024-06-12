@@ -103,14 +103,10 @@ export class FormConsumirComponent {
     // Aqui se realiza la peticion para guardar el consumo
     const idUsuario = this.getIDUsuario();
     console.log(idUsuario);
-    // this.#alimentoService.getUsuario(idUsuario).subscribe((data: any) => {
-    // postConsumoDiarioGuardar(comida: string, cantidad: string, momento: string, fecha: string, hora: string, idUsuario: string){
     const fechaActual = new Date();
     const fecha = fechaActual.toISOString().split('T')[0];
     const hora = fechaActual.toISOString().split('T')[1].split('.')[0];
 
-    // const cantidad = (document.querySelector('.cantidadInput') as HTMLInputElement).value;
-    // this.cantidadConsumida = cantidad;
     console.log(typeof parseFloat(cantidad));
 
     let momento: string;
@@ -140,8 +136,6 @@ export class FormConsumirComponent {
       }
     });
     }
-
-
   }
 
   proponerAlimento() {
@@ -150,16 +144,6 @@ export class FormConsumirComponent {
   }
 
   getIDUsuario(): any {
-    // this.#authService.fbUserEmail().then((email) => {
-    //   this.#usuarioService.getUser(email).subscribe((usuario: any) => {
-    //     if (usuario){
-    //       return usuario.respuesta.id.toISOString();
-    //     }else {
-    //       return null;
-    //     }
-    //   });
-    // });
-
     return localStorage.getItem('idUsuarioLogeado');
   }
 }

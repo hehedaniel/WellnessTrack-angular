@@ -29,7 +29,6 @@ import { AuthService } from '../../services/auth.service';
 export class RegistroComponent {
 
    // Servicios del componente
-   #authService: AuthService = inject(AuthService);
    #router: Router = inject(Router);
 
    // Variables del componente
@@ -43,9 +42,6 @@ export class RegistroComponent {
 
    registrarUsuario(){
       console.log(this.formularioRegistro.value);
-      // this.#authService.fbRegistro(this.formularioRegistro.value.correo,this.formularioRegistro.value.contrasena);
-
-      // this.#router.navigate(['/home']);
       //Guardar los datos del formulario en localStorage
       localStorage.setItem('correo', this.formularioRegistro.value.correo);
       localStorage.setItem('contrasena', this.formularioRegistro.value.contrasena);

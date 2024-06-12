@@ -41,7 +41,6 @@ export class UsuarioPerfilComponent {
     this.#authService.fbIsUserVerified().then((verified) => {
       this.correoVerificado = verified;
       console.log(verified);
-
     });
   }
 
@@ -73,8 +72,6 @@ export class UsuarioPerfilComponent {
         this.userAltura = usuario.respuesta.altura;
         this.userObjetivo = usuario.respuesta.objetivo_opt;
         this.userPesoObjetivo = usuario.respuesta.objetivo_num;
-        // this.correoVerificado = usuario.respuesta.correo_v;
-        // console.log(usuario.respuesta.correo_v);
 
         // Guardo los datos del usuario en el local storage
         localStorage.setItem('nombre', this.userNombre);

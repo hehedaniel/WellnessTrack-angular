@@ -5,7 +5,6 @@ import { MatInputModule, MatInput } from '@angular/material/input';
 import { MatIcon } from '@angular/material/icon';
 import { MatButton, MatButtonModule } from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { PesoService } from '../../services/peso.service';
 
@@ -39,6 +38,7 @@ export class FormEditarPesoComponent {
   peso: string = '';
   hora: string = '';
   fecha: string = '';
+  idUsuario: string = '';
 
   formActualizarDato = new FormGroup({
     newValue: new FormControl('', [Validators.required]),
@@ -51,12 +51,14 @@ export class FormEditarPesoComponent {
     this.hora = localStorage.getItem('hora') ?? '';
     this.fecha = localStorage.getItem('fecha') ?? '';
 
+    this.obtenerUsuario();
+
   }
 
   editarPeso(){
     console.log(this.formEditarPeso.value);
     if (this.formEditarPeso.valid){
-      this.#pesoService.putEditarPeso('2', this.fecha, this.hora, this.formEditarPeso.value.peso)
+      this.#pesoService.putEditarPeso(this.idUsuario, this.fecha, this.hora, this.formEditarPeso.value.peso)
         .subscribe((data: any) => {
           console.log(data);
           if(data.code === 200){
@@ -69,5 +71,9 @@ export class FormEditarPesoComponent {
 
   closeDialog() {
     this.#dialog.closeAll();
+  }
+
+  obtenerUsuario(){
+    this.idUsuario = localStorage.getItem('idUsuarioLogeado') ?? '';
   }
 }

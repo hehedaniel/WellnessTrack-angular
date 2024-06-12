@@ -26,8 +26,7 @@
         <p>Correo</p>
         <div class="datosUsuario">
           <p> {{userEmail}} </p>
-          <!-- Como carajo funcionan los condicionales -->
-          @if(!correoVerificado) {
+          @if(correoVerificado) {
           <img matSuffix class="edit-button fakeButton" src="../../../assets/icons/verifiedBlack12.svg"
             alt="Icono editar" title="Correo verificado">
           }@else {

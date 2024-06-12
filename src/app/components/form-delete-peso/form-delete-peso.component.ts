@@ -40,29 +40,24 @@ export class FormDeletePesoComponent {
   peso: string = '';
   hora: string = '';
   fecha: string = '';
+  idUsuario: string = '';
 
   ngOnInit() {
     this.peso = localStorage.getItem('peso') ?? '';
     this.hora = localStorage.getItem('hora') ?? '';
     this.fecha = localStorage.getItem('fecha') ?? '';
+    this.obtenerUsuario();
   }
 
   deletePeso() {
-    // this.#pesoService.deletePeso('2', this.fecha, this.hora).subscribe((data: any) => {
-    //   console.log(data);
-    //   if (data.code === 200) {
-    //     this.closeDialog();
-    //     location.reload();
-    //   }
-    // })
-    this.#pesoService.encontrarPeso('2', this.fecha, this.hora, this.peso).subscribe((data: any) => {
+    this.#pesoService.encontrarPeso(this.idUsuario, this.fecha, this.hora, this.peso).subscribe((data: any) => {
       console.log(data);
       if (data.code === 200) {
         this.#pesoService.deletePeso(data.respuesta.id).subscribe((data: any) => {
           console.log(data);
           if (data.code === 200) {
             this.closeDialog();
-            // location.reload();
+            location.reload();
           }
         });
       };
@@ -72,5 +67,9 @@ export class FormDeletePesoComponent {
 
   closeDialog() {
     this.#dialog.closeAll();
+  }
+
+  obtenerUsuario() {
+    this.idUsuario = localStorage.getItem('idUsuarioLogeado') ?? '';
   }
 }

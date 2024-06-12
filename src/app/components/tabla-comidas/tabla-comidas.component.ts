@@ -5,6 +5,7 @@ import { MatIconModule, MatIcon } from '@angular/material/icon';
 import { MatDialog } from '@angular/material/dialog';
 import { FormConsumirComponent } from '../form-consumir/form-consumir.component';
 import { FormEliminarConsumoDiarioComponent } from '../form-eliminar-consumo-diario/form-eliminar-consumo-diario.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 export interface Comida {
   nombre: string;
@@ -28,6 +29,7 @@ export class TablaComidasComponent {
 
   #alimentoService: AlimentosService = inject(AlimentosService);
   #dialog: MatDialog = inject(MatDialog);
+  #snacbkar: MatSnackBar = inject(MatSnackBar);
 
   newData: Comida[] = [];
   existeData: boolean = false;
@@ -61,7 +63,6 @@ export class TablaComidasComponent {
           });
         }
       });
-    // console.log(this.newData);
 
     return this.newData;
   }
@@ -92,10 +93,9 @@ export class TablaComidasComponent {
 
   editarComida(comida: any) {
 
-    // localStorage.setItem('comidaEditarNombre', comida.nombre);
-    // localStorage.setItem('comidaEditarCalorias', comida.calorias);
-
-    // this.#dialog.open(FormConsumirComponent);
+    this.#snacbkar.open('Lo sentimos esa opción no esta disponible', '', {
+      duration: 2000,
+    });
 
     console.log("Editar comida: " + comida);
 

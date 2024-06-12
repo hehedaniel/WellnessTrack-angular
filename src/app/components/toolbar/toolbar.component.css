@@ -29,8 +29,6 @@
   align-items: center;
 }
 
-/* .profile-icon img {
-  border-radius: 50%;
-  /* width: 24px;
-  height: 24px;
-} */
+.usuarioNombre{
+  margin-right: 5px;
+}

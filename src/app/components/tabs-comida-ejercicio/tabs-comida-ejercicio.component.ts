@@ -38,6 +38,5 @@ import { TablaEjerciciosComponent } from "../tabla-ejercicios/tabla-ejercicios.c
 export class TabsComidaEjercicioComponent {
 
   activeTab: string = 'Iniciar sesión';
-  // Servicios del componente
 
 }

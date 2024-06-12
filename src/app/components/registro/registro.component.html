@@ -3,7 +3,6 @@
     <mat-form-field class="mat-form-field inputForm">
         <input class="input" matInput type="email" formControlName="correo" placeholder="Correo">
         <img matSuffix class="iconoInput" src="../../../assets/images/IconoCorreoNegro.png" alt="">
-        <!-- Usar la comprobacion de correo de Huelva -->
         @if(formularioRegistro.get('correo')?.hasError('pattern') || formularioRegistro.get('correo')?.hasError('required')){
             <mat-error>
                 Por favor, introduzca un correo válido
@@ -13,13 +12,6 @@
 
     <mat-form-field class="mat-form-field inputForm">
         <input class="input" [type]="hide ? 'password' : 'text'" matInput formControlName="contrasena" placeholder="Contraseña">
-        <!-- <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-            @if(hide){
-                <img matSuffix class="iconoInput" src="../../../assets/images/IconoOcultarContraseniaNegro.png" alt="">
-            }@else{
-                <img matSuffix class="iconoInput" src="../../../assets/images/IconoMostrarContraseniaNegro.png" alt="">
-            }
-        </button>-->
         @if(formularioRegistro.get('contrasena')?.hasError('required')){
             <mat-error>
                 Debe indicar la contraseña del usuario
@@ -29,13 +21,6 @@
 
     <mat-form-field class="mat-form-field inputForm">
       <input class="input" [type]="hide ? 'password' : 'text'" matInput formControlName="contrasenarepeat" placeholder="Repetir Contraseña">
-      <!-- <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-          @if(hide){
-              <img matSuffix class="iconoInput" src="../../../assets/images/IconoOcultarContraseniaNegro.png" alt="">
-          }@else{
-              <img matSuffix class="iconoInput" src="../../../assets/images/IconoMostrarContraseniaNegro.png" alt="">
-          }
-      </button> -->
       @if(formularioRegistro.get('contrasena')?.hasError('required')){
           <mat-error>
               Debe indicar la contraseña del usuario

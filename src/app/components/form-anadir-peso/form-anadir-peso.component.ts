@@ -38,18 +38,20 @@ export class FormAnadirPesoComponent {
 
   hora: string = '';
   fecha: string = '';
+  idUsuario: string = '';
 
   ngOnInit(){
 
     this.hora = new Date().toISOString().split('T')[1].split('.')[0];
     this.fecha = new Date().toISOString().split('T')[0];
+    this.obtenerUsuario();
 
   }
 
   anadirPeso(){
     console.log(this.formEditarPeso.value);
     if (this.formEditarPeso.valid){
-      this.#pesoService.postAnadirPeso('2', this.fecha, this.hora, this.formEditarPeso.value.peso)
+      this.#pesoService.postAnadirPeso(this.idUsuario, this.fecha, this.hora, this.formEditarPeso.value.peso)
         .subscribe((data: any) => {
           console.log(data);
           if(data.code === 201){
@@ -63,5 +65,9 @@ export class FormAnadirPesoComponent {
 
   closeDialog() {
     this.#dialog.closeAll();
+  }
+
+  obtenerUsuario(){
+    this.idUsuario = localStorage.getItem('idUsuarioLogeado') ?? '';
   }
 }

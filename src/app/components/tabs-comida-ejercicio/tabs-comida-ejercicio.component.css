@@ -4,7 +4,6 @@ mat-tab-group {
   background-color: var(--SECONDARY_50);
   margin-top: 7vh;
   border-radius: 10px;
-  /* El shadow deberia cambiar a la derecha en registro pero xd */
   box-shadow: -4px 4px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -16,7 +15,6 @@ mat-tab-group {
 
 .mat-mdc-tab-group, .mat-mdc-tab-nav-bar {
   --mdc-tab-indicator-active-indicator-color: #fa010500;
-  /* --mat-tab-header-disabled-ripple-color: rgb(255, 0, 0); */
   --mat-tab-header-pagination-icon-color: black;
   --mat-tab-header-inactive-label-text-color: #727272;
   --mat-tab-header-active-label-text-color: black;

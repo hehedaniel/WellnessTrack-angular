@@ -10,6 +10,7 @@ import { AuthService } from '../../services/auth.service';
 import { UsuarioService } from '../../services/usuario.service';
 // import { AuthService } from '../../services/auth.service';
 import { UsuarioRegistroModel } from '../../models/usuario.model';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-registrodatos',
@@ -33,6 +34,7 @@ export class RegistrodatosComponent {
   #authService: AuthService = inject(AuthService);
   #usuarioService: UsuarioService = inject(UsuarioService);
   #router: Router = inject(Router);
+  #snackBar: MatSnackBar = inject(MatSnackBar);
 
   formularioDatos: FormGroup = new FormGroup({
     nombre: new FormControl('', [Validators.required]),
@@ -49,15 +51,11 @@ export class RegistrodatosComponent {
     let contrasena = localStorage.getItem('contrasena');
 
     if(correo == null || contrasena == null){
-      //Mostrar que falta el correo y la contraseña para su registro
       console.log('Falta el correo y la contraseña');
       this.#router.navigate(['/registro']);
     }else {
       //Registro completo con correo y contraseña
       this.#authService.fbRegistro(correo,contrasena);
-
-      // Datos que se han de rellenar más tarde
-
 
       //Hago la peticion a la api para el registro completo
       let usuario = new UsuarioRegistroModel(
@@ -67,28 +65,26 @@ export class RegistrodatosComponent {
         this.formularioDatos.value.edad,
         this.formularioDatos.value.altura
       );
-      // this.#usuarioService.postRegistro(usuario).subscribe((Respuesta) => {
-      //   // if (data === 200) {
-      //   //   this.#router.navigate(['/inicio']);
-      //   // } else {
-      //   //   console.log('Error:', data);
-      //   // }
-      //   console.log(Respuesta);
-      // });
 
       this.#usuarioService.postRegistro(usuario).subscribe({
-        // if (data === 200) {
-        //   this.#router.navigate(['/inicio']);
-        // } else {
-        //   console.log('Error:', data);
-        // }
+
         next: (Respuesta: {
           code: string;
           respuesta: Array<string>;
         } | {} ) => {
           if ('code' in Respuesta && Respuesta.code == '200'){
             console.log('Registro completado');
-            this.#router.navigate(['/home']);
+            this.#authService.fbLogout().then(() => {
+              console.log('Cerrando sesión');
+              localStorage.clear();
+              location.reload();
+            });
+            this.#snackBar.open('Registro completado, ya puedes inicia sesión', '', {
+              duration: 2000,
+              horizontalPosition: 'center',
+              verticalPosition: 'top',
+            });
+            this.#router.navigate(['/login']);
           }else {
             console.log('Error:', Respuesta);
           }
@@ -97,12 +93,6 @@ export class RegistrodatosComponent {
           console.log('Error:', error);
         }
       });
-
-
     }
-
-
-
-
   }
 }

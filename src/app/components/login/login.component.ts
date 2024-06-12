@@ -35,7 +35,6 @@ export class LoginComponent {
   #authService: AuthService = inject(AuthService);
   #usuarioService: UsuarioService = inject(UsuarioService);
   #router: Router = inject(Router);
-  #dialog: MatDialog = inject(MatDialog);
   #snackBar: MatSnackBar = inject(MatSnackBar);
 
   // Variables del componente
@@ -47,13 +46,10 @@ export class LoginComponent {
   hide = true;
 
   loginUser() {
-    // console.log(this.formularioLogin.value);
     if (this.formularioLogin.valid) {
       this.#authService.fbLogin(this.formularioLogin.value.correo, this.formularioLogin.value.contrasena).then((result) => {
-        // console.log(result);
         if (!result){
           console.log('Usuario no logeado');
-          // Mostrar pop up de error
           this.#snackBar.open('No ha sido posible iniciar sesión, compruebe los datos introducidos', '', {
             duration: 2000,
             horizontalPosition: 'center',
@@ -63,16 +59,15 @@ export class LoginComponent {
         }else {
           console.log('Usuario logeado');
           this.#authService.fbUserEmail().then((email) => {
-            console.log(email);
+            // console.log(email);
             this.#usuarioService.getUser(email).subscribe((usuario: any) => {
-              console.log(usuario);
+              // console.log(usuario);
               if (usuario){
                 console.log(usuario);
                 localStorage.setItem('idUsuarioLogeado', usuario.respuesta.id);
-                // this.#router.navigate(['/home']);
                 this.#router.navigate(['/perfil']);
               }else {
-                // console.log('Usuario no encontrado');
+                console.log('Usuario no encontrado');
                 this.#router.navigate(['/registro']);
               }
             });
