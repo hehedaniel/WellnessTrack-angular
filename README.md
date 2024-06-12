@@ -1,27 +1,26 @@
-# WellnessTrack
+# WellnessTrack - Angular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.7.
+Este repositorio cuenta con el proyecto creado con Angular para la parte frontend del proyecto WellnessTrack.
 
-## Development server
+## Instalación
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Para el correcto funcionamiento del proyecto es necesario:
 
-## Code scaffolding
+- Angular, usado v17.3.10
+- Angular cli, usado v17.3.8
+- Node, usado v20.14.0
+- Npm, usando v10.7.0
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Ejecución
 
-## Build
+Para el momento de ejecución la primera vez es necesario es instalar las dependencias, para ello habrá que realizar el comando:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```bash
+  npm install
+```
 
-## Running unit tests
+Si el comando anterior ha ido bien y no hemos recibido ningun error lo siguiente sera lanzar el servidor, para ello se ejecutara el siguiente comadno (el flag -o es para que se habra la ventana en el navegador):
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```bash
+  ng serve -o
+```
