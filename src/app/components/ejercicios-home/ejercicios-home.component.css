@@ -1,21 +1,56 @@
-body {
-  text-align: center;
+.content{
+  background-color: var(--SECONDARY_50);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 40%;
+  box-shadow: -4px 4px 8px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 7px;
 }
 
-.divMensaje {
-  margin-top: 100px;
+.ejerciciosHome{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 20vh;
+  width: 100%;
+  border-radius: 20px;
 }
-.pInformar {
-  font-size: 24px;
-  margin-bottom: 20px;
+
+app-tabla-comidas-completa{
+  width: 99%;
 }
-.pMensaje {
-  font-style: italic;
-  font-size: 18px;
-  color: #808080;
-  margin-bottom: 30px;
+app-tabla-ejercicios{
+  width: 99%;
 }
-.btnVolver {
-  color: var(--TERTIARY_500);
-  text-decoration: none;
+
+h1 {
+  width: 80%;
+  text-align: left;
+}
+button{
+  border: 0;
+  border-radius: 8px;
+}
+
+.divBtn{
+  width: 80%;
+  text-align: right;
+  height: 25px;
+  margin: 1%;
+}
+
+.anadirBtn{
+  width: 15%;
+  background-color: var(--PRIMARY_500);
+  height: 100%;
+}
+
+.proponerEjercicioBtn{
+  width: 35%;
+  background-color: var(--TERTIARY_600);
+  color: white;
+  margin: 3%;
+  height: 35px;
+
 }
