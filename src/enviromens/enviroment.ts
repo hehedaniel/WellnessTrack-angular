@@ -24,5 +24,9 @@ export const environment = {
   urlAnadirPeso: `${urlBase}/peso/crear`,
 
   urlObtenerEjercicios: `${urlBase}/usuariorealizaejercicio/usuario`,
+  urlObtenerTodosEjercicio: `${urlBase}/ejercicio`,
+  urlProponerEjercicio: `${urlBase}/ejercicio/crear`,
+
+  urlUsuarioRealizaEjercicio: `${urlBase}/usuariorealizaejercicio/realiza`,
 
 }

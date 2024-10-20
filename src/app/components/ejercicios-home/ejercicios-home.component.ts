@@ -6,6 +6,8 @@ import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import { TablaEjerciciosComponent } from '../tabla-ejercicios/tabla-ejercicios.component';
 import { FormRealizarEjercicioComponent } from '../form-realizar-ejercicio/form-realizar-ejercicio.component';
+import { UsuarioService } from '../../services/usuario.service';
+import { FormProponerEjercicioComponent } from '../form-proponer-ejercicio/form-proponer-ejercicio.component';
 
 @Component({
   selector: 'app-ejercicios-home',
@@ -19,13 +21,14 @@ import { FormRealizarEjercicioComponent } from '../form-realizar-ejercicio/form-
 })
 export class EjerciciosHomeComponent {
 
+  ruta = 'http://localhost:8000';
   #dialog: MatDialog = inject(MatDialog);
   #authService: AuthService = inject(AuthService);
   #router: Router = inject(Router);
+  #usuarioService: UsuarioService = inject(UsuarioService);
 
   ngOnInit() {
     this.checkLogedIn();
-
   }
 
   checkLogedIn() {
@@ -40,7 +43,19 @@ export class EjerciciosHomeComponent {
   }
 
   openDialog() {
-    this.#dialog.open(FormRealizarEjercicioComponent);
+    this.#dialog.open(FormRealizarEjercicioComponent, {
+      width: '50%',
+      height: 'auto',
+      maxHeight: '90vh',  // Para evitar que el diálogo se expanda demasiado verticalmente
+    });
+  }
+
+  openDialogProponer(){
+    this.#dialog.open(FormProponerEjercicioComponent, {
+      width: '50%',
+      height: 'auto',
+      maxHeight: '90vh',  // Para evitar que el diálogo se expanda demasiado verticalmente
+    });
   }
 
 }

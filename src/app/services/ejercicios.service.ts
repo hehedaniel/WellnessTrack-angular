@@ -14,17 +14,17 @@ export class EjerciciosRealizadosService {
     return this.#http.get(`${environment.urlObtenerEjercicios}/${usuario}`);
   }
 
-  // getBusquedaNombre(nombre: string){
-  //   return this.#http.post(`${environment.urlBusquedaNombre}`, { nombre });
-  // }
+  postBusquedaNombre(nombre: string){
+    return this.#http.post(`${environment.urlObtenerTodosEjercicio}/nombreConEnlaces`, { nombre });
+  }
 
-  // postConsumoDiarioGuardar(comida: string, cantidad: string, momento: string, fecha: string, hora: string, idUsuario: string){
-  //   return this.#http.post(`${environment.urlConsumoDiarioGuardar}/${idUsuario}`, { comida, cantidad, momento, fecha, hora, idUsuario });
-  // }
+  postEjercicioRealizadoGuardar(idEjercicio: string, idUsuario: string, tiempo: string, met: string){
+    return this.#http.post(`${environment.urlUsuarioRealizaEjercicio}`, { idEjercicio, idUsuario, tiempo, met });
+  }
 
-  // postProponerAlimento(alimento: any){
-  //   return this.#http.post(`${environment.urlProponerAlimento}`, {alimento});
-  // }
+  postProponerEjercicio(nombre: string, dificultad: string, grupoMuscular: string, valorMET: string, descripcion: string, instrucciones: string, idUsuario: string, enlace1: string, enlace2: string){
+    return this.#http.post(`${environment.urlProponerEjercicio}`, { nombre, dificultad, grupoMuscular, valorMET, descripcion, instrucciones, idUsuario, enlace1, enlace2 });
+  }
 
   // deleteConsumoDiario(comida: string, fecha: string, hora: string, idUsuario: string){
   //   return this.#http.post(`${environment.urlConsumoDiarioEliminar}`, { comida, fecha, hora, idUsuario });

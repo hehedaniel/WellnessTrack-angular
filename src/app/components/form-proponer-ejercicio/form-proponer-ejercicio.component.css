@@ -1,0 +1,114 @@
+.form-container {
+  width: 100%;
+  background-color: #ffffff;
+  border: 2px solid black;
+  padding: 20px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-header {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.close-button {
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.error-info {
+  font-size: 16px; /* Ajusta el tamaño del texto */
+  color: red !important; /* Estilo del error */
+}
+
+h2 {
+  text-align: center;
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.columnasDatos {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.form-left,
+.form-right {
+  width: 45%;
+}
+
+.input-group {
+  margin-bottom: 15px;
+}
+
+.input-field, 
+.textarea-field {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  box-sizing: border-box;
+  background-color: #f8f8f8; /* Añade un fondo claro para los campos */
+}
+
+.textarea-field {
+  min-height: 100px;
+  resize: none;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button[disabled] {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+button:hover:not([disabled]) {
+  background-color: #0056b3;
+}
+
+.form-tabla {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+table {
+  border-collapse: collapse;
+  width: auto;
+}
+
+th, td {
+  padding: 10px 20px; 
+  text-align: center;
+}
+
+th {
+  font-weight: bold; 
+}
+
+.form-footer {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.proponerEjercicioBtn {
+  width: 35%;
+  background-color: var(--TERTIARY_400);
+  color: white;
+  margin: 3%;
+  height: 35px;
+  border: none;
+  border-radius: 10px;
+}

@@ -10,13 +10,10 @@ import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EjerciciosRealizadosService } from '../../services/ejercicios.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { FormProponerEjercicioComponent } from '../form-proponer-ejercicio/form-proponer-ejercicio.component';
-
-export interface Enlace {
-  url: string;
-}
+import { Enlace, FormRealizarEjercicioComponent } from '../form-realizar-ejercicio/form-realizar-ejercicio.component';
 
 @Component({
-  selector: 'app-form-realizar-ejercicio',
+  selector: 'app-form-editar-ejercicio-realizado',
   standalone: true,
   imports: [
     MatInputModule,
@@ -26,10 +23,20 @@ export interface Enlace {
     ReactiveFormsModule,
     FormsModule
   ],
-  templateUrl: './form-realizar-ejercicio.component.html',
-  styleUrl: './form-realizar-ejercicio.component.css'
+  templateUrl: './form-editar-ejercicio-realizado.component.html',
+  styleUrl: './form-editar-ejercicio-realizado.component.css'
 })
-export class FormRealizarEjercicioComponent {
+export class FormEditarEjercicioRealizadoComponent {
+
+
+
+
+  // <!-- Falta recibir los datos y mostrarlos en el formulario -->
+
+
+
+
+
 
   ruta = 'http://localhost:8000';
   #dialog: MatDialog = inject(MatDialog);
@@ -177,5 +184,4 @@ export class FormRealizarEjercicioComponent {
     const date = new Date();
     return date.toISOString().split('T')[1].split('.')[0];
   }
-
 }

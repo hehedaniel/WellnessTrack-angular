@@ -28,7 +28,6 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class FormConsumirComponent {
 
-
   ruta = 'http://localhost:8000';
   #dialog: MatDialog = inject(MatDialog);
   #router: Router = inject(Router);
@@ -41,7 +40,7 @@ export class FormConsumirComponent {
   myControl = new FormControl('');
   options: string[] = ['Escriba el nombre del alimento'];
 
-  textareaContent: string = 'Texto inicial';
+  textareaContent: string = 'Descripción del alimento';
 
   comidaSeleccionada: string = '';
   base64Image: string = '';
@@ -91,7 +90,7 @@ export class FormConsumirComponent {
   guardarConsumo(cantidad: string) {
 
     if (this.comidaSeleccionada === '' || this.comidaSeleccionada === 'No se encontraron resultados, propón el tuyo!' || this.comidaSeleccionada === undefined) {
-      alert('Alimento seleccionado no válido');
+      //alert('Alimento seleccionado no válido');
       this.#snackBar.open('Alimento seleccionado no válido', '', {
         duration: 3000,
         horizontalPosition: 'center',

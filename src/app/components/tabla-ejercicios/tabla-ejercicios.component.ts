@@ -1,6 +1,8 @@
 import { Component, inject } from '@angular/core';
 import { EjerciciosRealizadosService } from '../../services/ejercicios.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatDialog } from '@angular/material/dialog';
+import { FormEditarEjercicioRealizadoComponent } from '../form-editar-ejercicio-realizado/form-editar-ejercicio-realizado.component';
 
 
 export interface Ejercicio {
@@ -8,6 +10,13 @@ export interface Ejercicio {
   nombre: string;
   tiempo: string;
   calorias: number;
+}
+
+export interface EjercicioRealizadoModificar {
+  tiempo: string;
+  met: string;
+  idEjercicio: string;
+  nombre: string;
 }
 
 @Component({
@@ -28,6 +37,7 @@ export class TablaEjerciciosComponent {
   dataSource = this.newData;
 
   #snackBar: MatSnackBar = inject(MatSnackBar);
+  #dialog: MatDialog = inject(MatDialog);
 
   ngOnInit() {
     this.fetchData();
@@ -69,13 +79,30 @@ export class TablaEjerciciosComponent {
     });
   }
 
-  editarEjercicio(ejercicio: any) {
-    this.#snackBar.open('No ha sido posible editar el ejercicio', '', {
-      duration: 2000,
-      horizontalPosition: 'center',
-      verticalPosition: 'top',
-      panelClass: ['error-snackbar']
-    });
+  editarEjercicio(ejercicio: Ejercicio) {
+
+    // const dialogData = {
+    //   grupoMuscular: ejercicio.grupoMuscular,
+    //   descripcion: this.textareaContent,
+    //   tiempo: this.tiempo,
+    //   valorMet: this.valorMet,
+    //   dificultad: this.dificultad,
+    //   opciones: this.options // si también quieres pasar opciones
+    // };
+
+    // this.#dialog.open(FormEditarEjercicioRealizadoComponent, {
+    //   data: {
+    //     idEjercicioRealizado: ejercicio.idEjercicioRealizado,
+    //     tiempo: ejercicio.tiempo,
+    //     met: ejercicio.met,
+    //     idEjercicio: ejercicio.idEjercicio,
+    //     nombre: ejercicio.nombre,
+    //     idUsuario: ejercicio.idUsuario
+    //   },
+    //   width: '50%',
+    //   height: 'auto',
+    //   maxHeight: '90vh',  // Para evitar que el diálogo se expanda demasiado verticalmente
+    // });
   }
 
 }

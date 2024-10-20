@@ -2,7 +2,7 @@
   <div class="table-wrapper">
     @if (existeData) {
       <div class="table-container">
-        <table class="meal-table">
+        <table class="ejercicios-table">
           <thead>
             <tr>
               <th>Hora</th>
@@ -19,7 +19,7 @@
               <td>{{ ejercicio.nombre }}</td>
               <td>{{ ejercicio.tiempo }}/min</td>
               <td>{{ ejercicio.calorias }}</td>
-              <td>
+              <td class="td-acciones">
                 <img matSuffix class="edit-button fakeButton" src="../../../assets/icons/editBlack12.svg"
                 (click)="editarEjercicio(ejercicio)" alt="">
                 <img matSuffix class="delelte-button fakeButton" src="../../../assets/icons/deleteBlack12.svg"

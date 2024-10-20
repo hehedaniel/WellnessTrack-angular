@@ -1,0 +1,73 @@
+<div class="form-container">
+    <div class="form-header">
+        <span class="close-button" (click)="closeDialog()" title="Cerrar formulario">X</span>
+    </div>
+    <h2>Proponer Ejercicio</h2>
+    <form [formGroup]="formProponerEjercicio" (ngSubmit)="enviarPropuestaEjercicio()">
+        <div class="columnasDatos">
+            <div class="form-left">
+                <!-- Nombre -->
+                <div class="input-group">
+                    <input matInput type="text" placeholder="Nombre" formControlName="nombre" class="input-field" />
+                </div>
+                <!-- Dificultad -->
+                <div class="input-group">
+                    <input formControlName="dificultad" type="text" placeholder="Dificultad" class="input-field" />
+                </div>
+                <!-- Descripción -->
+                <div class="input-group">
+                    <textarea formControlName="descripcion" placeholder="Descripción" class="textarea-field"></textarea>
+                </div>
+            </div>
+            <div class="form-right">
+                <!-- Grupo Muscular -->
+                <div class="input-group">
+                    <input formControlName="grupoMuscular" type="text" placeholder="Grupo Muscular"
+                        class="input-field" />
+                </div>
+                <!-- Valor MET -->
+                <div class="input-group">
+                    <input formControlName="valorMet" type="number" placeholder="Valor MET" class="input-field" min="0" [(ngModel)]="valorMet"/>
+                    @if(+valorMet < 0){
+                        <mat-error class="error-info"> El tiempo no puede ser negativo</mat-error> 
+                      }
+                </div>
+                <!-- Instrucciones -->
+                <div class="input-group">
+                    <textarea formControlName="instrucciones" placeholder="Instrucciones"
+                        class="textarea-field"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tabla de enlaces -->
+        <div class="form-tabla">
+            <div class="table-container">
+                <table class="tabla-ejercicios">
+                    <thead>
+                        <tr>
+                            <th>Título del Video</th>
+                            <th>Enlace</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for(enlace of enlaces; track 0){
+                        <tr>
+                            <td>{{ enlace.titulo }}</td>
+                            <td><a [href]="enlace.url" target="_blank">Ver video</a></td>
+                            <td>
+                                <img matSuffix class="edit-button fakeButton" src="../../../assets/icons/editBlack12.svg"
+                                    alt="Botón de editar" (click)="editarEnlace(enlace.numero,enlace)">
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="form-footer">
+            <button type="submit" class="proponerEjercicioBtn fakeButton" (click)="enviarPropuestaEjercicio()">Proponer</button>
+        </div>
+    </form>
+</div>

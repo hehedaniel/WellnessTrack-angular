@@ -1,21 +1,22 @@
+.ejerciciosHome{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 17vh;
+  width: 100%;
+  border-radius: 20px;
+}
+
 .content{
   background-color: var(--SECONDARY_50);
   display: flex;
   align-items: center;
   flex-direction: column;
-  width: 40%;
+  width: 60%;
   box-shadow: -4px 4px 8px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 7px;
 }
 
-.ejerciciosHome{
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  margin-top: 20vh;
-  width: 100%;
-  border-radius: 20px;
-}
 
 app-tabla-comidas-completa{
   width: 99%;
@@ -52,5 +53,4 @@ button{
   color: white;
   margin: 3%;
   height: 35px;
-
 }
