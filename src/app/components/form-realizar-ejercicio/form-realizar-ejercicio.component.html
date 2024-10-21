@@ -8,7 +8,7 @@
       <div class="form-left">
         <!-- buscador -->
         <div class="input-group">
-          <input type="text" class="input-field" (input)="onInputChange($event)"
+          <input type="text" class="input-field" (input)="onInputChange($event)" tabindex="1"
             placeholder="Escribe el nombre del ejercicios" aria-label="Number" matInput [formControl]="myControl"
             [matAutocomplete]="auto">
           <mat-autocomplete #auto="matAutocomplete">
@@ -29,7 +29,7 @@
       <!-- Columna derecha -->
       <div class="form-right">
         <div class="input-group">
-          <input type="number" placeholder="Tiempo (minutos)" class="input-field" [(ngModel)]="tiempo" min="0">
+          <input tabindex="2" type="number" placeholder="Tiempo (minutos)" class="input-field" [(ngModel)]="tiempo" min="0">
           @if(+tiempo < 0){
             <mat-error class="error-info"> El tiempo no puede ser negativo</mat-error> 
           }

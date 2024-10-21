@@ -206,4 +206,6 @@ td {
 .btnDisabled {
   background-color: var(--EXTRA_WHITE_LIGHT) !important;
   color: black !important;
+  cursor: not-allowed;
+  opacity: 0.6; 
 }

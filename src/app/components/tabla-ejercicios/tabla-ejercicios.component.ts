@@ -3,20 +3,15 @@ import { EjerciciosRealizadosService } from '../../services/ejercicios.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
 import { FormEditarEjercicioRealizadoComponent } from '../form-editar-ejercicio-realizado/form-editar-ejercicio-realizado.component';
+import { FormEliminarEjercicioRealizadoComponent } from '../form-eliminar-ejercicio-realizado/form-eliminar-ejercicio-realizado.component';
 
 
 export interface Ejercicio {
+  fecha: string;
   hora: string;
   nombre: string;
   tiempo: string;
   calorias: number;
-}
-
-export interface EjercicioRealizadoModificar {
-  tiempo: string;
-  met: string;
-  idEjercicio: string;
-  nombre: string;
 }
 
 @Component({
@@ -51,12 +46,20 @@ export class TablaEjerciciosComponent {
           return;
         }else {
           this.existeData = true;
+          // console.log(data.respuesta);
           data.respuesta.forEach((respuesta: any) => {
+            // console.log(respuesta.fecha.date.split(' ')[0]);
+            // console.log(respuesta.hora.date.split(' ')[1].split('.')[0]);
+            // console.log(respuesta.tiempo);
+            // console.log(respuesta.calorias);
+            // console.log(respuesta.ejNombre);
             this.newData.push({
+              // Añado a la lista de ejercicios realizados los datos que muestro en la tabla
               nombre: respuesta.ejNombre,
               hora: (respuesta.hora.date.split(' ')[1]).split('.')[0],
               tiempo: respuesta.tiempo,
-              calorias: respuesta.calorias
+              calorias: respuesta.calorias,
+              fecha: respuesta.fecha.date.split(' ')[0]
             });
           });
         }
@@ -71,38 +74,40 @@ export class TablaEjerciciosComponent {
   }
 
   eliminarEjercicio(ejercicio: any) {
-    this.#snackBar.open('No ha sido posible eliminar el ejercicio', '', {
-      duration: 2000,
-      horizontalPosition: 'center',
-      verticalPosition: 'top',
-      panelClass: ['error-snackbar']
+    const dialogData = {
+      tiempo: ejercicio.tiempo,
+      calorias: ejercicio.calorias,
+      hora: ejercicio.hora,
+      nombre: ejercicio.nombre,
+      fecha: ejercicio.fecha
+    };
+    this.#dialog.open(FormEliminarEjercicioRealizadoComponent, {
+      data: {
+        dialogData
+      },
+      width: 'auto',
+      height: 'auto',
+      maxHeight: '90vh',
     });
   }
 
   editarEjercicio(ejercicio: Ejercicio) {
 
-    // const dialogData = {
-    //   grupoMuscular: ejercicio.grupoMuscular,
-    //   descripcion: this.textareaContent,
-    //   tiempo: this.tiempo,
-    //   valorMet: this.valorMet,
-    //   dificultad: this.dificultad,
-    //   opciones: this.options // si también quieres pasar opciones
-    // };
-
-    // this.#dialog.open(FormEditarEjercicioRealizadoComponent, {
-    //   data: {
-    //     idEjercicioRealizado: ejercicio.idEjercicioRealizado,
-    //     tiempo: ejercicio.tiempo,
-    //     met: ejercicio.met,
-    //     idEjercicio: ejercicio.idEjercicio,
-    //     nombre: ejercicio.nombre,
-    //     idUsuario: ejercicio.idUsuario
-    //   },
-    //   width: '50%',
-    //   height: 'auto',
-    //   maxHeight: '90vh',  // Para evitar que el diálogo se expanda demasiado verticalmente
-    // });
+    const dialogData = {
+      tiempo: ejercicio.tiempo,
+      calorias: ejercicio.calorias,
+      hora: ejercicio.hora,
+      nombre: ejercicio.nombre,
+      fecha: ejercicio.fecha
+    };
+    this.#dialog.open(FormEditarEjercicioRealizadoComponent, {
+      data: {
+        dialogData
+      },
+      width: '50%',
+      height: 'auto',
+      maxHeight: '90vh',  // Para evitar que el diálogo se expanda demasiado verticalmente
+    });
   }
 
 }

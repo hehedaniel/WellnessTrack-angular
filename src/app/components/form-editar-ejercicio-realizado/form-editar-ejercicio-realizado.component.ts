@@ -1,5 +1,5 @@
-import { Component, inject } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { Component, Inject, inject } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import { UsuarioService } from '../../services/usuario.service';
@@ -11,6 +11,8 @@ import { EjerciciosRealizadosService } from '../../services/ejercicios.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { FormProponerEjercicioComponent } from '../form-proponer-ejercicio/form-proponer-ejercicio.component';
 import { Enlace, FormRealizarEjercicioComponent } from '../form-realizar-ejercicio/form-realizar-ejercicio.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { TablaEjerciciosComponent } from '../tabla-ejercicios/tabla-ejercicios.component';
 
 @Component({
   selector: 'app-form-editar-ejercicio-realizado',
@@ -21,48 +23,130 @@ import { Enlace, FormRealizarEjercicioComponent } from '../form-realizar-ejercic
     MatAutocompleteModule,
     MatFormFieldModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    MatProgressSpinnerModule
   ],
   templateUrl: './form-editar-ejercicio-realizado.component.html',
   styleUrl: './form-editar-ejercicio-realizado.component.css'
 })
 export class FormEditarEjercicioRealizadoComponent {
 
+  constructor(
+    public dialogRef: MatDialogRef<FormEditarEjercicioRealizadoComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any
+  ) {}  
 
 
-
-  // <!-- Falta recibir los datos y mostrarlos en el formulario -->
-
-
-
-
-
+  // Falta recibir los datos y mostrarlos en el formulario
 
   ruta = 'http://localhost:8000';
   #dialog: MatDialog = inject(MatDialog);
   #authService: AuthService = inject(AuthService);
   #router: Router = inject(Router);
   #snackBar: MatSnackBar = inject(MatSnackBar);
-  #usuarioService: UsuarioService = inject(UsuarioService);
   #ejercicioService: EjerciciosRealizadosService = inject(EjerciciosRealizadosService);
 
   myControl = new FormControl('');
   options: string[] = ['Escriba el nombre del ejercicio'];
   idOpciones: string[] = [''];
 
-  textareaContent: string = ''
 
+  //Datos que recibo desde el otro componente
+  nombre: string = '';
+  calorias: string = '';
+  tiempo: string = '';
+  hora: string = '';
+  fecha: string = '';
+
+  // Me guardo el tiempo viejo para hacer la regla de 3
+  tiempoViejo: number = 0;
+
+  //Datos que recojo desde la peticion
   ejercicioSeleccionado: string = '';
   idEjercicioSeleccionado: string = '';
-  grupoMuscular: string = '';
-  tiempo: string = '';
+  idEjercicioNuevo: string = '';
   valorMet: string = '';
+  grupoMuscular: string = '';
   dificultad: string = '';
+  textareaContent: string = '';
   tieneEnlaces: boolean = false;
   enlaces: Enlace[] = [];
 
+  datosRecibidos: boolean = false;
+
   ngOnInit() {
     this.checkLogedIn();
+    if (this.data && this.data.dialogData) {
+      // Me guardo el tiempo viejo para hacer la regla de 3
+      this.tiempoViejo = Number(this.data.dialogData.tiempo);
+      //Recojo y reasigno los datos que recibo
+      this.nombre = this.data.dialogData.nombre;
+      this.calorias = this.data.dialogData.calorias;
+      this.tiempo = this.data.dialogData.tiempo;
+      this.hora = this.data.dialogData.hora;
+      this.fecha = this.data.dialogData.fecha;
+      
+      //Hago la peticion para obtener el ejercicio el resto de datos
+      this.#ejercicioService.postBusquedaNombre(this.nombre).subscribe((data: any) => {
+        this.idEjercicioSeleccionado = data.respuesta[0].id;
+        this.textareaContent = data.respuesta[0].descripcion;
+        this.valorMet = data.respuesta[0].valorMET;
+        this.dificultad = data.respuesta[0].dificultad;
+        this.tieneEnlaces = true;
+        this.grupoMuscular = data.respuesta[0].grupoMuscular;
+        this.enlaces = data.respuesta[0].enlaces;
+        this.datosRecibidos = true;
+      });
+    }
+  }
+
+  guardarEjercicioRealizado() {
+    const idUsuario = localStorage.getItem('idUsuarioLogeado') || '';
+    if (idUsuario === '') {
+      console.log('No se ha podido obtener el id del usuario');
+      return;
+    }
+
+    const tiempo = this.tiempo; 
+    const hora = this.hora;
+    const fecha = this.fecha;
+
+    //Aqui obtengo las nuevas calorias mediante una regla de 3
+    //(Solo sirve si no se cambia de ejercicio, eres tonto)
+    //const calorias = (Number(this.calorias) / this.tiempoViejo) * Number(this.tiempo);
+
+    // Comprueba que se han introducido todos los datos
+    if (tiempo === '' || this.idEjercicioNuevo === '' || tiempo === undefined || this.idEjercicioNuevo === undefined ) {
+      this.#snackBar.open('Por favor, rellene todos los campos', '', {
+        duration: 3000,
+        horizontalPosition: 'center',
+        verticalPosition: 'top',
+        panelClass: ['error-snackbar']
+      });
+      return;
+    }
+
+    // Hago la petición para editar el ejercicio realizado
+    this.#ejercicioService.putEditarEjercicioRealizado(idUsuario, fecha, hora, this.idEjercicioSeleccionado, tiempo, this.idEjercicioNuevo, this.valorMet)
+      .subscribe((data: any) => {
+        if (data.code === 200) {
+          this.#dialog.closeAll();
+          location.reload();
+          this.#snackBar.open('Ejercicio actualizado correctamente', '', {
+            duration: 3000,
+            horizontalPosition: 'center',
+            verticalPosition: 'top',
+            panelClass: ['success-snackbar']
+          });
+        }else {
+          this.#snackBar.open('No ha sido posible actualizar el ejercicio', '', {
+            duration: 4000,
+            horizontalPosition: 'center',
+            verticalPosition: 'top',
+            panelClass: ['error-snackbar']
+          });
+        }
+      });
   }
 
   checkLogedIn() {
@@ -106,7 +190,6 @@ export class FormEditarEjercicioRealizadoComponent {
   }
 
   mostrar(opcion: string) {
-    // Esta funcion muestra la informacion del ejercicio seleccionado
     if (opcion == "undefined") {
       this.textareaContent = 'Descripcion del ejercicio';
       this.grupoMuscular = 'Grupo muscuarl';
@@ -115,7 +198,7 @@ export class FormEditarEjercicioRealizadoComponent {
     } else {
       // console.log(opcion)
       this.#ejercicioService.postBusquedaNombre(opcion).subscribe((data: any) => {
-        this.idEjercicioSeleccionado = data.respuesta[0].id;
+        this.idEjercicioNuevo = data.respuesta[0].id;
         this.textareaContent = data.respuesta[0].descripcion;
         this.grupoMuscular = data.respuesta[0].grupoMuscular;
         this.valorMet = data.respuesta[0].valorMET;
@@ -124,48 +207,6 @@ export class FormEditarEjercicioRealizadoComponent {
         this.enlaces = data.respuesta[0].enlaces;
       });
     }
-  }
-
-  guardarEjercicioRealizado() {
-    const idUsuario = localStorage.getItem('idUsuarioLogeado') || '';
-    if (idUsuario === '') {
-      console.log('No se ha podido obtener el id del usuario');
-      return;
-    }
-
-    // Ahora puedes acceder al valor ingresado por el usuario
-    const tiempo = this.tiempo; // Este valor debería ser el que el usuario introdujo
-    const met = this.valorMet; // Asegúrate de que esto también esté correctamente establecido
-    const idEjercicio = this.idEjercicioSeleccionado; // Este debe ser establecido cuando seleccionas un ejercicio
-
-    // Comprueba que se han introducido todos los datos
-    if (tiempo === '' || idEjercicio === '' || tiempo === undefined || idEjercicio === undefined) {
-      this.#snackBar.open('Por favor, rellene todos los campos', '', {
-        duration: 3000,
-        horizontalPosition: 'center',
-        verticalPosition: 'top',
-        panelClass: ['error-snackbar']
-      });
-      return;
-    }
-
-    console.log(met);
-
-    // Hago la petición para guardar el ejercicio realizado
-    this.#ejercicioService.postEjercicioRealizadoGuardar(idEjercicio, idUsuario, tiempo, met)
-      .subscribe((data: any) => {
-        console.log(data);
-        if (data.code === 200) {
-          this.#dialog.closeAll();
-          location.reload();
-          this.#snackBar.open('Ejercicio guardado correctamente', '', {
-            duration: 3000,
-            horizontalPosition: 'center',
-            verticalPosition: 'top',
-            panelClass: ['success-snackbar']
-          });
-        }
-      });
   }
 
   openDialogProponer() {

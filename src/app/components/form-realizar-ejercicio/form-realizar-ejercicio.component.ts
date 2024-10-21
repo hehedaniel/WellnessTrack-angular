@@ -126,10 +126,9 @@ export class FormRealizarEjercicioComponent {
       return;
     }
 
-    // Ahora puedes acceder al valor ingresado por el usuario
-    const tiempo = this.tiempo; // Este valor debería ser el que el usuario introdujo
-    const met = this.valorMet; // Asegúrate de que esto también esté correctamente establecido
-    const idEjercicio = this.idEjercicioSeleccionado; // Este debe ser establecido cuando seleccionas un ejercicio
+    const tiempo = this.tiempo; 
+    const met = this.valorMet; 
+    const idEjercicio = this.idEjercicioSeleccionado; 
 
     // Comprueba que se han introducido todos los datos
     if (tiempo === '' || idEjercicio === '' || tiempo === undefined || idEjercicio === undefined) {
@@ -157,12 +156,19 @@ export class FormRealizarEjercicioComponent {
             verticalPosition: 'top',
             panelClass: ['success-snackbar']
           });
+        }else {
+          this.#snackBar.open('No ha sido posible guardar el ejercicio', '', {
+            duration: 4000,
+            horizontalPosition: 'center',
+            verticalPosition: 'top',
+            panelClass: ['error-snackbar']
+          });
         }
       });
   }
 
   openDialogProponer() {
-    this.#dialog.open(FormRealizarEjercicioComponent, {
+    this.#dialog.open(FormProponerEjercicioComponent, {
       width: '80%',
       height: 'auto',
       maxHeight: '90vh',

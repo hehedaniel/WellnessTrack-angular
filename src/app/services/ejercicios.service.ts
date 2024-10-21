@@ -26,9 +26,13 @@ export class EjerciciosRealizadosService {
     return this.#http.post(`${environment.urlProponerEjercicio}`, { nombre, dificultad, grupoMuscular, valorMET, descripcion, instrucciones, idUsuario, enlace1, enlace2 });
   }
 
-  // deleteConsumoDiario(comida: string, fecha: string, hora: string, idUsuario: string){
-  //   return this.#http.post(`${environment.urlConsumoDiarioEliminar}`, { comida, fecha, hora, idUsuario });
-  // }
+  putEditarEjercicioRealizado(idUsuario: string, fecha: string, hora: string, idEjercicioViejo: string, tiempo: string, idEjercicioNuevo: string, met: string){
+    return this.#http.put(`${environment.urlEditarEjercicioRealizado}`, { idUsuario, fecha, hora, idEjercicioViejo, tiempo, idEjercicioNuevo, met });
+  }
+
+  deleteEjercicioRealizado(idUsuario: string, fecha: string, hora: string, idEjercicio: string){
+    return this.#http.post(`${environment.urlEliminarEjercicioRealizado}`, { idUsuario, fecha, hora, idEjercicio });
+  }
 
   // // Comprobar por que da error de sobrecarga
   // // deleteConsumoDiario(comida: string, fecha: string, hora: string, idUsuario: string){
