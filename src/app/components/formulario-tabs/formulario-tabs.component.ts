@@ -8,8 +8,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
-import { LoginComponent } from '../login/login.component';
-import { RegistroComponent } from '../registro/registro.component';
+import { LoginComponent } from '../usuario/login/login.component';
+import { RegistroComponent } from '../usuario/registro/registro.component';
 
 @Component({
    selector: 'app-formulario-tabs',
