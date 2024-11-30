@@ -5,7 +5,7 @@ import { MatIcon } from '@angular/material/icon';
 import { MatButton, MatButtonModule } from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { SpinnerMostrarComponent } from '../../spinner-mostrar/spinner-mostrar.component';
+import { SpinnerMostrarComponent } from '../../global/spinner-mostrar/spinner-mostrar.component';
 import { FloatLabelModule } from 'primeng/floatlabel';
 import { FormsModule } from '@angular/forms';
 import { ImageModule } from 'primeng/image';

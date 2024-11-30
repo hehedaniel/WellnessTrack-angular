@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
-import { UsuarioService } from '../../services/usuario.service';
-import { AuthService } from '../../services/auth.service';
+import { UsuarioService } from '../../../services/usuario.service';
+import { AuthService } from '../../../services/auth.service';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { FormActualizarDatosUsuarioComponent } from '../form-actualizar-datos-usuario/form-actualizar-datos-usuario.component';

@@ -1,9 +1,9 @@
 import { Component, Host, HostListener, inject } from '@angular/core';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterModule } from '@angular/router';
-import { UsuarioService } from '../../services/usuario.service';
-import { AlimentosService } from '../../services/alimentos.service';
-import { EjerciciosRealizadosService } from '../../services/ejercicios.service';
+import { UsuarioService } from '../../../services/usuario.service';
+import { AlimentosService } from '../../../services/alimentos.service';
+import { EjerciciosRealizadosService } from '../../../services/ejercicios.service';
 
 // import { BadgeModule } from 'primeng/badge';
 import { MatBadgeModule } from '@angular/material/badge';
@@ -12,7 +12,7 @@ import { MatIcon } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { Subscription } from 'rxjs';
-import { ResponsiveInfoService } from '../../services/responsive-info.service';
+import { ResponsiveInfoService } from '../../../services/responsive-info.service';
 
 @Component({
    selector: 'app-toolbar',

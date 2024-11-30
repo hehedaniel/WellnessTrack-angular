@@ -10,12 +10,12 @@ import { FormControl, FormsModule, ReactiveFormsModule, Validators } from '@angu
 import { EjerciciosRealizadosService } from '../../../services/ejercicios.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { FormProponerEjercicioComponent } from '../form-proponer-ejercicio/form-proponer-ejercicio.component';
-import { YoutubeVideoPlayerComponent } from '../../youtube-video-player/youtube-video-player.component';
+import { YoutubeVideoPlayerComponent } from '../../global/youtube-video-player/youtube-video-player.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { SpinnerMostrarComponent } from '../../spinner-mostrar/spinner-mostrar.component';
+import { SpinnerMostrarComponent } from '../../global/spinner-mostrar/spinner-mostrar.component';
 import { AutoCompleteModule } from 'primeng/autocomplete';
 import { AlimentosService } from '../../../services/alimentos.service';
-import { SwitchProponerComidaComponent } from '../../switch-proponer-comida/switch-proponer-comida.component';
+import { SwitchProponerComidaComponent } from '../../comidas/switch-proponer-comida/switch-proponer-comida.component';
 import { MatLabel, MatFormField } from '@angular/material/form-field';
 import { MatInput } from '@angular/material/input';
 import { MatIcon } from '@angular/material/icon';

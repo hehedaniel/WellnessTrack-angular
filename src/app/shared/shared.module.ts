@@ -33,14 +33,14 @@ import { PesoService } from '../services/peso.service';
 import { UsuarioService } from '../services/usuario.service';
 
 // Components
-import { SpinnerMostrarComponent } from '../components/spinner-mostrar/spinner-mostrar.component';
+import { SpinnerMostrarComponent } from '../components/global/spinner-mostrar/spinner-mostrar.component';
 import { FormProponerAlimentoNutrientesComponent } from '../components/comidas/form-proponer-comida-nutrientes/form-proponer-alimento-nutrientes.component';
 import { FormProponerEjercicioComponent } from '../components/ejercicios/form-proponer-ejercicio/form-proponer-ejercicio.component';
 import { FormRealizarEjercicioComponent, Enlace } from '../components/ejercicios/form-realizar-ejercicio/form-realizar-ejercicio.component';
 import { FormAdministrarEjercicioPropuestoComponent } from '../components/ejercicios/form-administrar-ejercicio-propuesto/form-administrar-ejercicio-propuesto.component';
 import { TablaEjerciciosComponent } from '../components/ejercicios/tabla-ejercicios/tabla-ejercicios.component';
 import { SwitchProponerComidaComponent } from '../components/comidas/switch-proponer-comida/switch-proponer-comida.component';
-import { AdministrarEjerciciosPropuestosComponent } from '../components/administrar-propuestas/administrar-propuestas.component';
+import { AdministrarEjerciciosPropuestosComponent } from '../components/global/administrar-propuestas/administrar-propuestas.component';
 import { FormEditarEnlaceEjercicioComponent } from '../components/ejercicios/form-editar-enlace-ejercicio/form-editar-enlace-ejercicio.component';
 import { FormConsumirComponent } from '../components/comidas/form-consumir/form-consumir.component';
 import { FormAdministrarRecetaPropuestaComponent } from '../components/comidas/form-administrar-receta-propuesta/form-administrar-receta-propuesta.component';

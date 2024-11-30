@@ -11,7 +11,7 @@ import { FormEditarEnlaceEjercicioComponent } from '../form-editar-enlace-ejerci
 import { DropdownModule } from 'primeng/dropdown';
 import { ResponsiveInfoService } from '../../../services/responsive-info.service';
 import { Subscription } from 'rxjs';
-import { YoutubeVideoPlayerComponent } from '../../youtube-video-player/youtube-video-player.component';
+import { YoutubeVideoPlayerComponent } from '../../global/youtube-video-player/youtube-video-player.component';
 
 @Component({
    selector: 'app-form-proponer-ejercicio',

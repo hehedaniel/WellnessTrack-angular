@@ -6,13 +6,13 @@ import { MatButton, MatButtonModule } from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { SpinnerMostrarComponent } from '../../spinner-mostrar/spinner-mostrar.component';
+import { SpinnerMostrarComponent } from '../../global/spinner-mostrar/spinner-mostrar.component';
 import { FloatLabelModule } from 'primeng/floatlabel';
 import { FormsModule } from '@angular/forms';
 import { ImageModule } from 'primeng/image';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { AlimentosService } from '../../../services/alimentos.service';
-import { AdministrarEjerciciosPropuestosComponent } from '../../administrar-propuestas/administrar-propuestas.component';
+import { AdministrarEjerciciosPropuestosComponent } from '../../global/administrar-propuestas/administrar-propuestas.component';
 import { ResponsiveInfoService } from '../../../services/responsive-info.service';
 import { Subscription } from 'rxjs';
 

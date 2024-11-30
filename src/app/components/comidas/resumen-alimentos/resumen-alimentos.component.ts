@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 
 import { ChartModule } from 'primeng/chart';
-import { AlimentosService } from '../../services/alimentos.service';
+import { AlimentosService } from '../../../services/alimentos.service';
 
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
@@ -10,7 +10,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { FormGroup, FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Subscription } from 'rxjs';
-import { ResponsiveInfoService } from '../../services/responsive-info.service';
+import { ResponsiveInfoService } from '../../../services/responsive-info.service';
 
 @Component({
    selector: 'app-resumen-alimentos',

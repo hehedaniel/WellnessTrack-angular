@@ -1,9 +1,9 @@
 import { Component, inject } from '@angular/core';
-import { PesoService } from '../../services/peso.service';
+import { PesoService } from '../../../services/peso.service';
 import { MatIconModule, MatIcon } from '@angular/material/icon';
-import { FormEditarPesoComponent } from '../pesos/form-editar-peso/form-editar-peso.component';
-import { FormDeletePesoComponent } from '../pesos/form-delete-peso/form-delete-peso.component';
-import { FormAnadirPesoComponent } from '../pesos/form-anadir-peso/form-anadir-peso.component';
+import { FormEditarPesoComponent } from '../../pesos/form-editar-peso/form-editar-peso.component';
+import { FormDeletePesoComponent } from '../../pesos/form-delete-peso/form-delete-peso.component';
+import { FormAnadirPesoComponent } from '../../pesos/form-anadir-peso/form-anadir-peso.component';
 import { MatDialog } from '@angular/material/dialog';
 import { ViewChild } from '@angular/core';
 import { MatPaginatorModule } from '@angular/material/paginator';
@@ -13,7 +13,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { ResponsiveInfoService } from '../../services/responsive-info.service';
+import { ResponsiveInfoService } from '../../../services/responsive-info.service';
 import { Subscription } from 'rxjs';
 
 export interface Peso {

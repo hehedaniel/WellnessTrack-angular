@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { AuthService } from '../../services/auth.service';
+import { AuthService } from '../../../services/auth.service';
 import { Router } from '@angular/router';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
@@ -9,15 +9,15 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { EjerciciosRealizadosService } from '../../services/ejercicios.service';
-import { FormAdministrarEjercicioPropuestoComponent } from '../ejercicios/form-administrar-ejercicio-propuesto/form-administrar-ejercicio-propuesto.component';
-import { UsuarioService } from '../../services/usuario.service';
+import { EjerciciosRealizadosService } from '../../../services/ejercicios.service';
+import { FormAdministrarEjercicioPropuestoComponent } from '../../ejercicios/form-administrar-ejercicio-propuesto/form-administrar-ejercicio-propuesto.component';
+import { UsuarioService } from '../../../services/usuario.service';
 import { AccordionModule } from 'primeng/accordion';
-import { AlimentosService } from '../../services/alimentos.service';
-import { FormAdministrarRecetaPropuestaComponent } from '../comidas/form-administrar-receta-propuesta/form-administrar-receta-propuesta.component';
-import { FormAdministrarAlimentoPropuestoComponent } from '../comidas/form-administrar-alimento-propuesto/form-administrar-alimento-propuesto.component';
+import { AlimentosService } from '../../../services/alimentos.service';
+import { FormAdministrarRecetaPropuestaComponent } from '../../comidas/form-administrar-receta-propuesta/form-administrar-receta-propuesta.component';
+import { FormAdministrarAlimentoPropuestoComponent } from '../../comidas/form-administrar-alimento-propuesto/form-administrar-alimento-propuesto.component';
 import { MatBadgeModule } from '@angular/material/badge';
-import { SpinnerMostrarComponent } from '../spinner-mostrar/spinner-mostrar.component';
+import { SpinnerMostrarComponent } from '../../global/spinner-mostrar/spinner-mostrar.component';
 import { provideNativeDateAdapter } from '@angular/material/core';
 
 export interface EjercicioAdministrar {

@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 import { UsuarioService } from '../../../services/usuario.service';
 import { AuthService } from '../../../services/auth.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { SwitchProponerComidaComponent } from '../../switch-proponer-comida/switch-proponer-comida.component';
+import { SwitchProponerComidaComponent } from '../../comidas/switch-proponer-comida/switch-proponer-comida.component';
 import { MatButtonModule } from '@angular/material/button';
 import { FloatLabelModule } from 'primeng/floatlabel';
 import { ImageModule } from 'primeng/image';

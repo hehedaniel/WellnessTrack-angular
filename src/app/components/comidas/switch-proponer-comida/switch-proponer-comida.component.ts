@@ -1,8 +1,8 @@
 import { Component, inject } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { FormProponerRecetaComponent } from '../comidas/form-proponer-receta/form-proponer-receta.component';
-import { FormProponerAlimentoComponent } from '../comidas/form-proponer-alimento/form-proponer-alimento.component';
-import { ProponerComidaStepperComponent } from '../comidas/proponer-comida-stepper/proponer-comida-stepper.component';
+import { FormProponerRecetaComponent } from '../../comidas/form-proponer-receta/form-proponer-receta.component';
+import { FormProponerAlimentoComponent } from '../../comidas/form-proponer-alimento/form-proponer-alimento.component';
+import { ProponerComidaStepperComponent } from '../../comidas/proponer-comida-stepper/proponer-comida-stepper.component';
 
 @Component({
    selector: 'app-switch-proponer-comida',

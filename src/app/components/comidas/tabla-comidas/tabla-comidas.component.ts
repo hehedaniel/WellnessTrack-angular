@@ -1,10 +1,10 @@
 import { Component, inject, ViewChild, AfterViewInit } from '@angular/core';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
-import { AlimentosService } from '../../services/alimentos.service';
+import { AlimentosService } from '../../../services/alimentos.service';
 import { MatDialog } from '@angular/material/dialog';
-import { FormEliminarConsumoDiarioComponent } from '../comidas/form-eliminar-consumo-diario/form-eliminar-consumo-diario.component';
+import { FormEliminarConsumoDiarioComponent } from '../../comidas/form-eliminar-consumo-diario/form-eliminar-consumo-diario.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { FormEditarConsumoComponent } from '../comidas/form-editar-consumo/form-editar-consumo.component';
+import { FormEditarConsumoComponent } from '../../comidas/form-editar-consumo/form-editar-consumo.component';
 import { MatSort, MatSortModule } from '@angular/material/sort';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -13,7 +13,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { provideNativeDateAdapter } from '@angular/material/core';
-import { InfoComidaComponent } from '../comidas/info-comida/info-comida.component';
+import { InfoComidaComponent } from '../../comidas/info-comida/info-comida.component';
 import { MatProgressSpinner } from '@angular/material/progress-spinner';
 
 export interface Comida {

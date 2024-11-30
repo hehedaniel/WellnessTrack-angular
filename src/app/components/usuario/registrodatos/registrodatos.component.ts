@@ -6,10 +6,10 @@ import { MatIcon } from '@angular/material/icon';
 import { MatButton, MatButtonModule } from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from '../../services/auth.service';
-import { UsuarioService } from '../../services/usuario.service';
+import { AuthService } from '../../../services/auth.service';
+import { UsuarioService } from '../../../services/usuario.service';
 // import { AuthService } from '../../services/auth.service';
-import { UsuarioRegistroModel } from '../../models/usuario.model';
+import { UsuarioRegistroModel } from '../../../models/usuario.model';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({

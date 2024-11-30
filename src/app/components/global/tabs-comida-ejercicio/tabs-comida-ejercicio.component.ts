@@ -7,11 +7,11 @@ import { MatIcon } from '@angular/material/icon';
 import { MatButton, MatButtonModule } from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from '../../services/auth.service';
-import { RegistroComponent } from '../usuario/registro/registro.component';
-import { LoginComponent } from '../usuario/login/login.component';
-import { TablaComidasComponent } from '../comidas/tabla-comidas/tabla-comidas.component';
-import { TablaEjerciciosComponent } from '../ejercicios/tabla-ejercicios/tabla-ejercicios.component';
+import { AuthService } from '../../../services/auth.service';
+import { RegistroComponent } from '../../usuario/registro/registro.component';
+import { LoginComponent } from '../../usuario/login/login.component';
+import { TablaComidasComponent } from '../../comidas/tabla-comidas/tabla-comidas.component';
+import { TablaEjerciciosComponent } from '../../ejercicios/tabla-ejercicios/tabla-ejercicios.component';
 import { TabViewModule } from 'primeng/tabview';
 
 @Component({

@@ -7,7 +7,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { FormProponerAlimentoNutrientesComponent } from '../form-proponer-comida-nutrientes/form-proponer-alimento-nutrientes.component';
-import { SpinnerMostrarComponent } from '../../spinner-mostrar/spinner-mostrar.component';
+import { SpinnerMostrarComponent } from '../../global/spinner-mostrar/spinner-mostrar.component';
 import { FloatLabelModule } from 'primeng/floatlabel';
 import { FormsModule } from '@angular/forms';
 import { ImageModule } from 'primeng/image';

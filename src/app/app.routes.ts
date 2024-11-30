@@ -1,8 +1,8 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './components/home/home.component';
+import { HomeComponent } from './components/global/home/home.component';
 import { RegistroComponent } from './components/usuario/registro/registro.component';
 import { RegistrodatosComponent } from './components/usuario/registrodatos/registrodatos.component';
-import { FormularioTabsComponent } from './components/formulario-tabs/formulario-tabs.component';
+import { FormularioTabsComponent } from './components/usuario/formulario-tabs/formulario-tabs.component';
 import { ResumenAlimentosComponent } from './components/comidas/resumen-alimentos/resumen-alimentos.component';
 import { TablaComidasComponent } from './components/comidas/tabla-comidas/tabla-comidas.component';
 import { ComidasHomeComponent } from './components/comidas/comidas-home/comidas-home.component';
@@ -14,7 +14,7 @@ import { PesosHomeComponent } from './components/pesos/pesos-home/pesos-home.com
 import { UsuarioPerfilComponent } from './components/usuario/usuario-perfil/usuario-perfil.component';
 import { VistaAlimentoComponent } from './components/comidas/vista-alimento/vista-alimento.component';
 import { EjerciciosHomeComponent } from './components/ejercicios/ejercicios-home/ejercicios-home.component';
-import { AdministrarEjerciciosPropuestosComponent } from './components/administrar-propuestas/administrar-propuestas.component';
+import { AdministrarEjerciciosPropuestosComponent } from './components/global/administrar-propuestas/administrar-propuestas.component';
 import { PaginaErrorComponent } from './components/pesos/pagina-error/pagina-error.component';
 
 export const routes: Routes = [

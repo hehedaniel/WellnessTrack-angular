@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
-import { AlimentosService } from '../../services/alimentos.service';
+import { AlimentosService } from '../../../services/alimentos.service';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @Component({
