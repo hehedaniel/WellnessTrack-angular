@@ -2,22 +2,21 @@ import { Component, inject } from '@angular/core';
 
 import { MatTabsModule } from '@angular/material/tabs';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { MatLabel, MatFormField, MatFormFieldModule, MatFormFieldControl } from '@angular/material/form-field';
-import { MatInputModule, MatInput } from '@angular/material/input';
-import { MatIcon } from '@angular/material/icon';
-import { MatButton, MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
-import { RegistroComponent } from '../registro/registro.component';
 import { LoginComponent } from '../login/login.component';
+import { RegistroComponent } from '../registro/registro.component';
 
 @Component({
    selector: 'app-formulario-tabs',
    standalone: true,
    templateUrl: './formulario-tabs.component.html',
    styleUrl: './formulario-tabs.component.css',
-   imports: [MatTabsModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatButtonModule, RegistroComponent, LoginComponent],
+   imports: [MatTabsModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatButtonModule, LoginComponent, RegistroComponent],
 })
 export class FormularioTabsComponent {
    activeTab: string = 'Iniciar sesión';

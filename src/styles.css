@@ -261,3 +261,13 @@ td a {
    text-overflow: ellipsis;
    max-width: 150px;
 }
+
+/* Para el stepper de alimentos y recetas */
+
+p-stepper-panels ng-tns-c2425116043-4 ng-star-inserted {
+   padding: 0 !important;
+}
+
+.p-stepper .p-stepper-panels {
+   padding: 0 !important;
+}

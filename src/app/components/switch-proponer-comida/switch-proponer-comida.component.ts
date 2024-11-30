@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { FormProponerRecetaComponent } from '../form-proponer-receta/form-proponer-receta.component';
 import { FormProponerAlimentoComponent } from '../form-proponer-alimento/form-proponer-alimento.component';
+import { ProponerComidaStepperComponent } from '../comidas/proponer-comida-stepper/proponer-comida-stepper.component';
 
 @Component({
    selector: 'app-switch-proponer-comida',
@@ -23,9 +24,13 @@ export class SwitchProponerComidaComponent {
    }
    irAAlimento() {
       this.#dialog.closeAll();
-      this.#dialog.open(FormProponerAlimentoComponent, {
+      // this.#dialog.open(FormProponerAlimentoComponent, {
+      //    width: '70%',
+      //    // height: '90%',
+      // });
+      this.#dialog.open(ProponerComidaStepperComponent, {
          width: '70%',
-         // height: '90%',
+         height: '90%',
       });
    }
 
