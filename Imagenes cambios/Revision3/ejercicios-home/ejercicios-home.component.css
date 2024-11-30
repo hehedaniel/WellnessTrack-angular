@@ -1,0 +1,66 @@
+.ejerciciosHome{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 17vh;
+  width: 100%;
+  /* border-radius: 20px; */
+}
+
+.content{
+  background-color: var(--SECONDARY_50);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 70%;
+  height: auto;
+  box-shadow: -4px 4px 8px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 7px;
+}
+
+app-tabla-ejercicios{
+  width: auto;
+}
+
+h1 {
+  width: 80%;
+  text-align: left;
+}
+
+button{
+  border: 0;
+  border-radius: 8px;
+}
+
+.divBtn{
+  display: flex;
+  justify-content: space-evenly;
+  width: 80%;
+  text-align: right;
+  margin: 3%;
+}
+
+.btnEjerciciosHome{
+  width: 30%;
+  color: white;
+  /* margin: 3%; */
+  height: 35px;
+}
+
+.btnProponer{
+  background-color: var(--SUCCESS_600);
+}
+
+.btnAnadir{
+  background-color: var(--TERTIARY_500);
+}
+
+/* .btnProponer{
+  background-color: var(--PRIMARY_400);
+  color: black;
+}
+
+.btnAnadir{
+  background-color: var(--TERTIARY_300);
+  color: black;
+} */

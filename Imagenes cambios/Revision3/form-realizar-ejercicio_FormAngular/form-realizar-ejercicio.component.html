@@ -1,0 +1,95 @@
+<div class="form-container">
+  <div class="form-header">
+    <span class="close-button" (click)="closeDialog()" title="Cerrar formulario">X</span>
+  </div>
+  <div class="form-body">
+    <div class="columnasDatos">
+      <!-- COlumna izquierda -->
+      <div class="form-left">
+        <!-- buscador -->
+        <div class="input-group">
+          <input type="text" class="input-field" (input)="onInputChange($event)" tabindex="1"
+            placeholder="Escribe el nombre del ejercicios" aria-label="Number" matInput [formControl]="myControl"
+            [matAutocomplete]="auto">
+          <mat-autocomplete #auto="matAutocomplete">
+            @for (option of options; track option) {
+              <mat-option [value]="option" (click)="mostrar(option)">{{option}}</mat-option>
+            }
+          </mat-autocomplete>
+        </div>
+        <!-- Grupo musucalr -->
+        <div class="input-group">
+          <input type="text" placeholder="Grupo muscular" class="input-field input-disabled" disabled [(ngModel)]="grupoMuscular">
+        </div>
+        <!-- descripcion -->
+        <div class="input-group">
+          <textarea [(ngModel)]="textareaContent" class="textarea-field input-disabled" placeholder="Descripción del ejercicio" disabled></textarea>
+        </div>
+      </div>
+      <!-- Columna derecha -->
+      <div class="form-right">
+        <div class="input-group">
+          <input tabindex="2" type="number" placeholder="Tiempo (minutos)" class="input-field" [(ngModel)]="tiempo" min="0" (focus)="focusTiempo()">
+          @if(+tiempo <= 0 && seleccionadoTiempo){
+            <mat-error class="error-info"> El tiempo no puede ser menor a 1 minuto</mat-error> 
+          }
+        </div>
+        <div class="input-group">
+          <input type="text" placeholder="Valor met" class="input-field input-disabled" disabled [(ngModel)]="valorMet">
+        </div>
+        <div class="input-group">
+          <input type="text" placeholder="Dificultad" class="input-field input-disabled" disabled [(ngModel)]="dificultad">
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Tabla Enlaces -->
+    <div class="form-tabla">
+      @if (tieneEnlaces) {
+      <div class="table-container">
+        <table class="tabla-ejercicios">
+          <thead>
+            <tr>
+              <th>Titulo</th>
+              <th>Nombre</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for(enlace of enlaces; track 0){
+            <tr>
+              <td>Enlace 1</td>
+              <td>
+                <a href="#" (click)="abrirVideo(enlace.url, $event)">{{ enlace.url }}</a>
+              </td>
+            </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+      }
+      @else {
+      <div class="divNoData">
+        <p>Seleccione un ejercicio para ver sus enlaces</p>
+      </div>
+      }
+    </div>
+
+    <!-- Pie de página -->
+  <div class="form-footer">
+    <div class="btns-izq">
+      <button class="proponerEjercicioBtn fakeButton" (click)="openDialogProponer()" title="Proponer un ejercicio">Proponer ejercicio</button>
+    </div>
+    <div class="btns-der">
+      @if(+tiempo < 1){ 
+        <button class="submit-button btnDisabled" (click)="guardarEjercicioRealizado()" disabled title="No puedes añadir ejercicios con tiempo negativo">
+          Añadir
+        </button>
+      }@else {
+        <button class="submit-button btnAnadir fakeButton" (click)="guardarEjercicioRealizado()" title="Añadir ejercicio realizado">Añadir</button>
+      }
+    </div>
+  </div>
+
+
+</div>

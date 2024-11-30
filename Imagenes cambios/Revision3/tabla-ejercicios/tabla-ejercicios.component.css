@@ -1,0 +1,76 @@
+.page-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  border-radius: 54px;
+}
+
+th, td {
+  padding: 20px 45px;
+  text-align: center;
+  border-bottom: 1px solid var(--PRIMARY_600);
+}
+
+th {
+  font-weight: bold; 
+  background-color: var(--PRIMARY_500)!important;
+  color: white;
+}
+
+.acciones-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+
+/* 
+
+.table-container {
+  max-height: 350px; 
+  overflow-y: auto;  
+  border-radius: 5px;  
+  position: relative;  
+}
+
+.ejercicios-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.ejercicios-table thead {
+  position: sticky;
+  top: 0; 
+  z-index: 1; 
+}
+
+
+ */
+
+.edit-button, .delete-button {
+  background: none;
+  border: none;
+  font-size: 16px;
+}
+
+.edit-button {
+  margin-right: 10px;
+}
+
+.divNoData {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fakeButton {
+  cursor: pointer;
+  /* margin-right: 5px; */
+}

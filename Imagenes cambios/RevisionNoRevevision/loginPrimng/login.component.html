@@ -1,0 +1,52 @@
+<div class="formContenedor">
+   <form [formGroup]="formularioLogin" (ngSubmit)="loginUser()" class="form">
+      <!-- Campo para Email -->
+      <!-- <p-inputGroup class="inputLogin"> -->
+      <div class="inputLogin">
+         <!-- <p-inputGroupAddon>
+            <i class="pi pi-envelope"></i>
+         </p-inputGroupAddon> -->
+         <input pInputText placeholder="Correo" formControlName="correo" class="inputCorreo" />
+      </div>
+      <!-- </p-inputGroup> -->
+      <!-- Mensaje de error para correo 
+      @if (formularioLogin.get('correo')?.hasError('pattern') || formularioLogin.get('correo')?.hasError('required')){ @if
+      (formularioLogin.get('correo')?.errors?.['required']){
+      <div class="error">
+         <small>El correo es obligatorio</small>
+      </div>
+      }@else if (formularioLogin.get('correo')?.errors?.['correo']) {
+      <div class="error">
+         <small>Formato de correo no válido</small>
+      </div>
+      } }-->
+
+      <!-- Campo para Contraseña -->
+      <div class="inputLogin">
+         <!-- <p-inputGroupAddon> -->
+         <!-- <i class="pi pi-lock"></i> -->
+         <!-- </p-inputGroupAddon> -->
+         <p-password formControlName="contrasena" [toggleMask]="true" [feedback]="false" class="inputPass" placeholder="Contraseña" />
+         <!-- <input pInputText type="password" placeholder="Contraseña" formControlName="contrasena" (focus)="escribiendoContrasena()" />
+         @if (mosrtarControles) {
+         <p-inputGroupAddon>
+            <i [class]="passwordVisible ? 'pi pi-eye-slash' : 'pi pi-eye'" (click)="togglePasswordVisibility()"></i>
+         </p-inputGroupAddon>
+         } -->
+      </div>
+
+      <!-- Mensaje de error para contraseña 
+      @if (formularioLogin.get('password')?.hasError('required') || formularioLogin.get('password')?.hasError('minlength')) { @if
+      (formularioLogin.get('password')?.errors?.['required']) {
+      <div class="error">
+         <small>La contraseña es obligatoria</small>
+      </div>
+      } @else if (formularioLogin.get('password')?.errors?.['minlength']) {
+      <div class="error">
+         <small>La contraseña debe tener al menos 6 caracteres</small>
+      </div>
+      } }-->
+
+      <button class="btnForm" cdkFocusInitial color="primary" type="submit">Iniciar Sesión</button>
+   </form>
+</div>

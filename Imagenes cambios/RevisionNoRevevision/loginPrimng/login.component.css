@@ -1,0 +1,42 @@
+form {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   padding-top: 35px;
+}
+
+.btnForm {
+   margin-bottom: 25px;
+}
+
+/* Estilos inputs login */
+
+.inputLogin {
+   width: 70% !important;
+   margin-bottom: 15px;
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+}
+
+/* p-element p-inputwrapper inputPass p-password-mask ng-untouched ng-pristine ng-invalid ng-tns-c3237098745-0 {
+   background-color: aqua;
+   width: 70% !important;
+} */
+
+.inputCorreo {
+   width: 70% !important;
+}
+
+.p-input-icon-right > .p-inputtext {
+   padding-right: 2.5rem !important;
+   width: 100% !important;
+}
+.p-password {
+   position: relative !important;
+   display: inline-flex !important;
+   flex-direction: row !important;
+   justify-content: space-evenly !important;
+   width: 70% !important;
+}
