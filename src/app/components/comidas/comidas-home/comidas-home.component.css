@@ -1,6 +1,10 @@
-.comidasPage {
-   color: var(--PRIMARY_900);
-   height: 100vh;
+.comidasHome {
+   display: flex;
+   align-items: center;
+   flex-direction: column;
+   margin-top: 10vh;
+   width: 100%;
+   border-radius: 20px;
 }
 
 .content {
@@ -13,16 +17,6 @@
    box-shadow: -4px 4px 8px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.1);
    border-radius: 7px;
 }
-
-.comidasHome {
-   display: flex;
-   align-items: center;
-   flex-direction: column;
-   margin-top: 10vh;
-   width: 100%;
-   border-radius: 20px;
-}
-
 app-tabla-comidas-completa {
    width: 99%;
 }

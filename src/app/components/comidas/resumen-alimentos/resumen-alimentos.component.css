@@ -22,6 +22,8 @@
    flex-direction: column;
    justify-content: space-evenly;
    align-items: center;
+   margin-top: 1%;
+   margin-left: 1%;
 }
 
 .datosNutrientes {
@@ -59,6 +61,12 @@ mat-spinner {
    align-items: center;
    height: 100%;
    width: 100%;
+}
+
+@media (max-width: 1200px) {
+   p {
+      font-size: 20px !important;
+   }
 }
 
 @media (max-width: 768px) {

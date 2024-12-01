@@ -60,7 +60,7 @@ body {
    margin: 0;
    font-weight: bold;
    overflow: hidden;
-   text-overflow: ellipsis;
+   text-overflow: ellipsis !important;
 }
 
 .label {
@@ -93,6 +93,14 @@ body {
 }
 
 /* -- Responsive -- */
+@media (max-width: 1200px) {
+   .datoUsuario {
+      flex: 1 1 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+   }
+}
+
 @media (max-width: 768px) {
    .datoUsuario {
       flex: 1 1 100%;
