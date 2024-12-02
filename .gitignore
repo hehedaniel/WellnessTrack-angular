@@ -47,4 +47,4 @@ Thumbs.db
 .runtimeconfig.json
 
 #Para tener otro repositorio especifico del despligue
-dist/
+# dist/
