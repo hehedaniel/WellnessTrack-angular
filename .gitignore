@@ -45,3 +45,6 @@ Thumbs.db
 .firebase
 *-debug.log
 .runtimeconfig.json
+
+#Para tener otro repositorio especifico del despligue
+dist/
