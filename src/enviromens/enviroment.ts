@@ -1,7 +1,7 @@
 import { url } from 'inspector';
 
-// const urlBase = 'http://localhost:8000';
-const urlBase = 'http://16.171.27.146';
+const urlBase = 'http://localhost:8000';
+// const urlBase = 'http://16.171.27.146';
 
 export const environment = {
    ulr: urlBase,
