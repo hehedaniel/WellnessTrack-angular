@@ -64,16 +64,36 @@ export class RegistrodatosComponent implements OnInit {
       console.log(this.formularioDatos.value);
 
       if (this.validarCampo('nombre')) {
-         console.log('Falta el nombre');
+         this.#snackBar.open('Falta el nombre', '', {
+            duration: 2000,
+            horizontalPosition: 'center',
+            verticalPosition: 'top',
+            panelClass: ['error-snackbar'],
+         });
          return;
       } else if (this.validarCampo('apellidos')) {
-         console.log('Falta el apellido');
+         this.#snackBar.open('Falta el apellido', '', {
+            duration: 2000,
+            horizontalPosition: 'center',
+            verticalPosition: 'top',
+            panelClass: ['error-snackbar'],
+         });
          return;
       } else if (this.validarCampo('edad')) {
-         console.log('Falta la edad');
+         this.#snackBar.open('Falta la edad', '', {
+            duration: 2000,
+            horizontalPosition: 'center',
+            verticalPosition: 'top',
+            panelClass: ['error-snackbar'],
+         });
          return;
       } else if (this.validarCampo('altura')) {
-         console.log('Falta la altura');
+         this.#snackBar.open('Falta la altura', '', {
+            duration: 2000,
+            horizontalPosition: 'center',
+            verticalPosition: 'top',
+            panelClass: ['error-snackbar'],
+         });
          return;
       } else {
          //Registro completo con correo y contraseña
@@ -83,11 +103,33 @@ export class RegistrodatosComponent implements OnInit {
                   console.log('Registro completado:', userCredential.user);
                   this.guardarRegistroBBDD();
                } else {
-                  console.log('Error: Usuario no registrado correctamente.');
+                  console.log('Error: Usuario no registrado.');
+
+                  this.#snackBar.open('Error en el registro, intentelo mas tarde', '', {
+                     duration: 2000,
+                     horizontalPosition: 'center',
+                     verticalPosition: 'top',
+                     panelClass: ['error-snackbar'],
+                  });
                }
             },
             (error: any) => {
-               console.error('Error en el registro:', error);
+               console.log(error.message);
+               if (error.message == 'EMAIL_EXISTS') {
+                  this.#snackBar.open('El correo ya existe', '', {
+                     duration: 2000,
+                     horizontalPosition: 'center',
+                     verticalPosition: 'top',
+                     panelClass: ['error-snackbar'],
+                  });
+               } else {
+                  this.#snackBar.open('Error en el registro, intentelo mas tarde', '', {
+                     duration: 2000,
+                     horizontalPosition: 'center',
+                     verticalPosition: 'top',
+                     panelClass: ['error-snackbar'],
+                  });
+               }
             }
          );
       }

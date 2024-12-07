@@ -33,6 +33,10 @@ export const routes: Routes = [
          ),
    },
    {
+      path: 'registrodatos',
+      loadComponent: () => import('./components/usuario/registrodatos/registrodatos.component').then((m) => m.RegistrodatosComponent),
+   },
+   {
       path: 'registro',
       redirectTo: 'login',
       pathMatch: 'full',

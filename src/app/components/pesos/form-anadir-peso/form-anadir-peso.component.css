@@ -1,26 +1,88 @@
-.popUp{
-  width: 600px;
-  height: 250px;
-  border: 2px solid black;
+.popUpCompleto {
+   margin: 5% 3%;
 }
 
-.cabecera{
-  display: flex;
-  justify-content: space-between;
-  align-self: center;
-  width: 90%;
-  margin-left: 5%;
-  margin-top: 3%;
-  margin-bottom: 3%;
+h2 {
+   margin-top: 2%;
+   padding-right: 2%;
 }
 
-.formPeso{
-  display: flex;
-  justify-content: space-evenly;
-  margin-bottom: 3%;
+.cabecera {
+   width: 100%;
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   align-items: center;
 }
 
-.pieForm{
-  display: flex;
-  justify-content: center;
+.formPeso {
+   margin: 4%;
+}
+
+input {
+   width: 100%;
+   padding: 0.7rem !important;
+   margin: 1% !important;
+   border-radius: 4px !important;
+}
+
+.input-div input {
+   border: 1px solid var(--EXTRA_GRAY) !important;
+}
+
+.input-div,
+.input-div-disabled {
+   display: flex !important;
+   flex-direction: column !important;
+   margin: 1%;
+}
+
+.input-div-disabled input {
+   display: flex !important;
+   flex-direction: column !important;
+   background-color: #f5f5f5;
+   border: 1px solid var(--EXTRA_WHITE);
+   display: flex;
+   align-items: center;
+}
+
+.piePopUp {
+   margin-top: 4%;
+   width: 100%;
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items: center;
+}
+
+button {
+   padding: 2% 4% 2% 4%;
+   border-radius: 10px;
+   border: none;
+   font-size: 16px;
+}
+
+.btnGuardar {
+   background-color: var(--TERTIARY_600);
+   color: white;
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+   h1 {
+      font-size: 24px;
+   }
+   .formPeso {
+      margin: 2%;
+   }
+}
+
+@media (max-width: 576px) {
+   h1 {
+      font-size: 18px;
+   }
+   .formPeso {
+      margin: 2%;
+   }
 }

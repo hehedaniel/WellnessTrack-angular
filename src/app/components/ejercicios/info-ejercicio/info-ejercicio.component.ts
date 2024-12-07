@@ -149,14 +149,24 @@ export class InfoEjercicioComponent {
       event.preventDefault(); // Evita que el enlace navegue a otra página
       const videoId = this.extraerIDVideo(url);
       this.#dialog.open(YoutubeVideoPlayerComponent, {
-         width: '70%',
+         width: 'auto',
          data: { videoId },
       });
    }
 
    private extraerIDVideo(url: string): string {
-      const urlParams = new URLSearchParams(new URL(url).search);
-      return urlParams.get('v') || '';
+      const urlObject = new URL(url);
+
+      const urlParams = new URLSearchParams(urlObject.search);
+      if (urlParams.has('v')) {
+         return urlParams.get('v') || '';
+      }
+
+      if (urlObject.pathname.startsWith('/shorts/')) {
+         return urlObject.pathname.split('/').pop() || '';
+      }
+
+      return '';
    }
 
    closeDialog() {

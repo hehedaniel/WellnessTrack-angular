@@ -62,7 +62,7 @@ export class FormEditarPesoComponent {
    nuevoValor: string = '';
 
    ngOnInit() {
-      this.peso = this.data.peso;
+      this.nuevoValor = this.data.peso;
       this.hora = this.data.hora;
       this.fecha = this.data.fecha;
 

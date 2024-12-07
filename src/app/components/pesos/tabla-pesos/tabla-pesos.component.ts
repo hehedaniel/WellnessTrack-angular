@@ -65,7 +65,7 @@ export class TablaPesosComponent {
 
    tamanoPantalla: string = 'pantalla';
    tamanoPantallaSub!: Subscription;
-   widthEditarPeso: string = '30%';
+   widthEditarPeso: string = '70%';
 
    ngOnInit() {
       this.fetchData();
@@ -123,7 +123,10 @@ export class TablaPesosComponent {
    }
 
    anadirPeso() {
-      this.#dialog.open(FormAnadirPesoComponent);
+      console.log(this.widthEditarPeso);
+      this.#dialog.open(FormAnadirPesoComponent, {
+         width: this.widthEditarPeso,
+      });
    }
 
    obtenerUsuario() {
@@ -152,6 +155,7 @@ export class TablaPesosComponent {
       };
 
       this.#dialog.open(FormDeletePesoComponent, {
+         width: this.widthEditarPeso,
          data,
       });
    }

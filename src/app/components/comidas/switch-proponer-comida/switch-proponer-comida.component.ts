@@ -24,13 +24,9 @@ export class SwitchProponerComidaComponent {
    }
    irAAlimento() {
       this.#dialog.closeAll();
-      // this.#dialog.open(FormProponerAlimentoComponent, {
-      //    width: '70%',
-      //    // height: '90%',
-      // });
-      this.#dialog.open(ProponerComidaStepperComponent, {
+      this.#dialog.open(FormProponerAlimentoComponent, {
          width: '70%',
-         height: '90%',
+         // height: '90%',
       });
    }
 
