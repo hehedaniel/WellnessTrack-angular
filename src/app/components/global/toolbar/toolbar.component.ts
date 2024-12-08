@@ -53,7 +53,13 @@ export class ToolbarComponent {
    comprobarRol() {
       // Hago la peticion para saber si el usuario es admin o no
       this.#usuarioService.getUsuarioAdmin(this.idUsuario).subscribe((data: any) => {
-         this.esAdmin = data.respuesta;
+         if(data.respuesta === true){
+            this.esAdmin = true;
+         }else {
+            false
+         }
+
+         console.log(data.respuesta);
       });
    }
 

@@ -48,44 +48,66 @@ export class FormProponerRecetaComponent {
    imgPreview: boolean = false;
 
    siguienteForm() {
-      if (
-         this.nombre == '' ||
-         this.cantidad == 0 ||
-         isNaN(this.cantidad) ||
-         this.cantidad < 1 ||
-         this.instrucciones == '' ||
-         this.descripcion == '' ||
-         this.base64Image == ''
-      ) {
-         this.#snackBar.open('Por favor rellene todos los campos de forma correcta', '', {
-            duration: 2000,
-            horizontalPosition: 'center',
-            verticalPosition: 'top',
-            panelClass: ['error-snackbar'],
-         });
-      } else {
-         const dialogData = {
-            tipo: 'receta',
-            nombre: this.nombre,
-            cantidad: this.cantidad,
-            instrucciones: this.instrucciones,
-            descripcion: this.descripcion,
-            imagen: this.base64Image,
-         };
+      // if (
+      //    this.nombre == '' ||
+      //    this.cantidad == 0 ||
+      //    isNaN(this.cantidad) ||
+      //    this.cantidad < 1 ||
+      //    this.instrucciones == '' ||
+      //    this.descripcion == '' ||
+      //    this.base64Image == ''
+      // ) {
+      //    this.#snackBar.open('Por favor rellene todos los campos de forma correcta', '', {
+      //       duration: 2000,
+      //       horizontalPosition: 'center',
+      //       verticalPosition: 'top',
+      //       panelClass: ['error-snackbar'],
+      //    });
+      // } else {
+      //    const dialogData = {
+      //       tipo: 'receta',
+      //       nombre: this.nombre,
+      //       cantidad: this.cantidad,
+      //       instrucciones: this.instrucciones,
+      //       descripcion: this.descripcion,
+      //       imagen: this.base64Image,
+      //    };
 
-         this.imgPreview = true;
+      //    this.imgPreview = true;
 
-         console.log(dialogData);
+      //    console.log(dialogData);
 
-         this.#dialog.open(FormProponerAlimentoNutrientesComponent, {
-            data: {
-               dialogData,
-            },
-            width: '70%',
-            height: 'auto',
-            maxHeight: '90vh',
-         });
-      }
+      //    this.#dialog.open(FormProponerAlimentoNutrientesComponent, {
+      //       data: {
+      //          dialogData,
+      //       },
+      //       width: '70%',
+      //       height: 'auto',
+      //       maxHeight: '90vh',
+      //    });
+      // }
+
+      const dialogData = {
+         tipo: 'receta',
+         nombre: this.nombre,
+         cantidad: this.cantidad,
+         instrucciones: this.instrucciones,
+         descripcion: this.descripcion,
+         imagen: this.base64Image,
+      };
+
+      this.imgPreview = true;
+
+      console.log(dialogData);
+
+      this.#dialog.open(FormProponerAlimentoNutrientesComponent, {
+         data: {
+            dialogData,
+         },
+         width: '70%',
+         height: 'auto',
+         maxHeight: '90vh',
+      });
    }
 
    subirImg(event: any) {

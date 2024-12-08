@@ -69,6 +69,7 @@ export class FormEditarConsumoComponent implements OnInit {
    carbohidratos: string = '';
    azucares: string = '';
    // vitaminas: string = '';
+   cantidadAlimento: string = '';
 
    //Para saber si se modificado
    cantidadInicial: string = '';
@@ -168,6 +169,16 @@ export class FormEditarConsumoComponent implements OnInit {
             this.recetaInfoDisponible = true;
          }
       });
+
+      if (this.receta) {
+         this.#alimentoService.getBusquedaReceta(this.nombreAlimento).subscribe((data: any) => {
+            this.cantidadAlimento = data.respuesta[0].cantidadFinal
+         });
+      } else {
+         this.#alimentoService.getBusquedaNombre(this.nombreAlimento).subscribe((data: any) => {
+            this.cantidadAlimento = data.respuesta[0].cantidad
+         });
+      }
    }
 
    guardarConsumo() {
@@ -286,6 +297,38 @@ export class FormEditarConsumoComponent implements OnInit {
                //me guardo el data para usarlo al itrnoducir una cantidad
                this.dataNutrientes = data.respuesta[0];
             });
+         }
+      }
+   }
+
+   calcularDatos(cantidad: string){
+      
+      if (cantidad === '' || parseInt(cantidad) < 1) {
+         this.#snackBar.open('Cantidad introducida no válida', '', {
+            duration: 3000,
+            horizontalPosition: 'center',
+            verticalPosition: 'top',
+            panelClass: ['error-snackbar'],
+         });
+      } else {
+         console.log(this.dataNutrientes);
+
+         if (this.receta) {
+            const cantidadNum_Receta = parseFloat(cantidad) / parseFloat(this.cantidadAlimento);
+            
+            this.proteinas = Math.round(parseFloat(this.dataNutrientes.proteinas) * cantidadNum_Receta * 100) / 100 + '';
+            this.grasas = Math.round(parseFloat(this.dataNutrientes.grasas) * cantidadNum_Receta * 100) / 100 + '';
+            this.carbohidratos = Math.round(parseFloat(this.dataNutrientes.carbohidratos) * cantidadNum_Receta * 100) / 100 + '';
+            this.azucares = Math.round(parseFloat(this.dataNutrientes.azucares) * cantidadNum_Receta * 100) / 100 + '';
+            this.calorias = Math.round(parseFloat(this.calorias) * cantidadNum_Receta * 100) / 100 + '';
+
+         } else {
+            const cantidadNum_Alimento = parseFloat(cantidad) / parseFloat(this.cantidadAlimento);
+            this.proteinas = Math.round(parseFloat(this.proteinas) * cantidadNum_Alimento * 100) / 100 + '';
+            this.grasas = Math.round(parseFloat(this.grasas) * cantidadNum_Alimento * 100) / 100 + '';
+            this.carbohidratos = Math.round(parseFloat(this.carbohidratos) * cantidadNum_Alimento * 100) / 100 + '';
+            this.azucares = Math.round(parseFloat(this.azucares) * cantidadNum_Alimento * 100) / 100 + '';
+            this.calorias = Math.round(parseFloat(this.calorias) * cantidadNum_Alimento * 100) / 100 + '';
          }
       }
    }

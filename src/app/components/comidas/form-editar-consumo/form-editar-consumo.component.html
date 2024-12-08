@@ -32,7 +32,7 @@
             <div class="principalDer">
                <div class="input-div">
                   <label for="cantidad" class="labelInput">Cantidad ingerida (gr o ml)</label>
-                  <input pInputNumber type="number" id="cantidad" [(ngModel)]="cantidad" mode="decimal" [min]="1" />
+                  <input pInputNumber type="number" id="cantidad" [(ngModel)]="cantidad" mode="decimal" [min]="1" (change)="calcularDatos(cantidad)"/>
                </div>
 
                @if (receta){

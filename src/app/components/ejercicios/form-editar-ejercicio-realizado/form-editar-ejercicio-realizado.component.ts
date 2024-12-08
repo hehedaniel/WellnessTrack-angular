@@ -187,6 +187,8 @@ export class FormEditarEjercicioRealizadoComponent {
             this.enlaces = data.respuesta[0].enlaces;
 
             this.tiempoEstado = false;
+            this.calcularCalorias();
+            console.log(this.tiempoEjercicioFormulario);
          });
       }
    }

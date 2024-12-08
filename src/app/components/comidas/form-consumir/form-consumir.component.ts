@@ -242,7 +242,7 @@ export class FormConsumirComponent implements OnInit {
                //Espero para recargar la pagina
                setTimeout(() => {
                   location.reload();
-               }, 3500);
+               }, 2500);
             } else {
                this.guardandoConsumo = false;
                this.#snackBar.open('Error al guardar el consumo', '', {
