@@ -24,7 +24,7 @@
 
       <!-- Campo Edad -->
       <mat-form-field class="mat-form-field inputForm">
-         <mat-label>Edad</mat-label>
+         <mat-label>Edad (años)</mat-label>
          <input class="input" matInput type="number" formControlName="edad" />
          @if (formularioDatos.get('edad')?.hasError('required')) {
          <mat-error>Por favor, introduzca su edad</mat-error>
@@ -37,7 +37,7 @@
 
       <!-- Campo Altura -->
       <mat-form-field class="mat-form-field inputForm">
-         <mat-label>Altura</mat-label>
+         <mat-label>Altura (cm)</mat-label>
          <input class="input" matInput type="number" formControlName="altura" />
          @if (formularioDatos.get('altura')?.hasError('required')) {
          <mat-error>Por favor, introduzca su altura</mat-error>

@@ -82,9 +82,9 @@ export class LoginComponent {
                this.#authService.fbUserEmail().then((email) => {
                   this.#usuarioService.getUser(email).subscribe((usuario: any) => {
                      if (usuario) {
-                        console.log(usuario);
                         localStorage.setItem('idUsuarioLogeado', usuario.respuesta.id);
                         this.#router.navigate(['/perfil']);
+                        location.reload();
                      } else {
                         this.#router.navigate(['/registro']);
                         this.#snackBar.open('No se ha encontrado el usuario, registrese', '', {
@@ -116,7 +116,6 @@ export class LoginComponent {
          //  console.error(`El campo "${campoValidar}" tiene errores:`);
 
          const errors = control.errors || {};
-         console.log(errors);
 
          if (errors['required']) {
             // console.error(`- El campo "${campoValidar}" es obligatorio.`);

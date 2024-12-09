@@ -101,19 +101,23 @@ export class TablaPesosComponent {
       const fecha = this.obtenerFecha();
 
       this.#pesoService.getAllPesos(this.idUsuario).subscribe((data: any) => {
-         data.respuesta.forEach((respuesta: any) => {
-            this.existeData = true;
-            const horaCompleta = respuesta.hora.date.split(' ')[1];
-
-            this.newData.push({
-               fechaHora: respuesta.fecha.date.split(' ')[0] + ' / ' + horaCompleta.split('.')[0],
-               peso: respuesta.peso,
+         if(data.respuesta != "Este usuario no tiene pesos registrados"){
+            data.respuesta.forEach((respuesta: any) => {
+               this.existeData = true;
+               const horaCompleta = respuesta.hora.date.split(' ')[1];
+   
+               this.newData.push({
+                  fechaHora: respuesta.fecha.date.split(' ')[0] + ' / ' + horaCompleta.split('.')[0],
+                  peso: respuesta.peso,
+               });
+   
+               this.dataSource = new MatTableDataSource(this.newData);
+               this.dataSource.sort = this.sort;
+               this.ngAfterViewInit();
             });
-
-            this.dataSource = new MatTableDataSource(this.newData);
-            this.dataSource.sort = this.sort;
-            this.ngAfterViewInit();
-         });
+         }else {
+            this.sinDatos = true
+         }
       });
    }
 

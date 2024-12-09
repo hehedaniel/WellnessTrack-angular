@@ -206,7 +206,8 @@ export class FormRealizarEjercicioComponent {
             });
             return;
          }
-         this.caloriasQuemadas = parseInt(met) * parseFloat(peso) * parseInt(tiempo);
+         this.caloriasQuemadas = parseInt(met) * parseFloat(peso) * (parseInt(tiempo) / 60 );
+         this.caloriasQuemadas = parseInt(this.caloriasQuemadas.toFixed(2));
          this.formCorrecto = true;
       });
    }
